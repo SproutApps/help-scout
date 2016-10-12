@@ -1,0 +1,15 @@
+- .DS_Store
+- /.git
+- /.gitignore
+- /.gitattributes
+- /build- /help-scout-desk.php
+- /changelog.txt
+- /controllers/integrations
+- /controllers/Customers.php
+- /controllers/Email_Login.php
+- /controllers/Embeds.php
+- /controllers/Tags.php
+- /controllers/Updates.php
+- /resources/front-end/plugins/redactor
+- /controllers/Conversations.php
+- /controllers/AJAX.php

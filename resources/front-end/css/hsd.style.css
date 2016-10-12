@@ -1,0 +1,37 @@
+.loading {
+	display: block;
+	min-width: 50px;
+	min-height: 50px;
+	background: url(../img/ajax-loader.gif) no-repeat;
+}
+.cloak {
+	display: none;
+}
+.attachments {
+	font-size: 11px;
+	list-style: none;
+	margin: 0 0 15px 0;
+}
+.attachments li.image_att img {
+	max-width: 250px;
+	height: auto;
+	float: left;
+	margin-right: 25px;
+}
+.attachments li.file_att {
+	display: inline-block;
+	margin: 0 .4em .5em 0;
+	position: relative;
+	font-size: 11px;
+	line-height: 20px;
+	background: #fff;
+	border-radius: 12px;
+	border: 1px solid #dadada;
+}
+.attachments li.file_att a {
+	padding: 8px;
+}
+.attachments_wrap {
+	display: block;
+	clear: both;
+}

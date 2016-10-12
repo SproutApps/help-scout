@@ -1,0 +1,409 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Help Scout Desk\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-11-30 10:34-0800\n"
+"PO-Revision-Date: 2015-12-08 15:18-0800\n"
+"Last-Translator: Dan Cameron <l10n@sproutapps.co>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: /Users/dancameron/Projects/Sprout_Apps/development/wp-"
+"content/\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-SearchPath-0: plugins/help-scout-desk\n"
+
+#: plugins/help-scout-desk/controllers/_Controller.php:119
+msgid "Expand message"
+msgstr ""
+
+#: plugins/help-scout-desk/controllers/_Controller.php:120
+msgid "Collapse message"
+msgstr ""
+
+#: plugins/help-scout-desk/controllers/_Controller.php:143
+msgid "Once a Minute"
+msgstr ""
+
+#: plugins/help-scout-desk/controllers/_Controller.php:147
+msgid "15 Minutes"
+msgstr ""
+
+#: plugins/help-scout-desk/controllers/_Controller.php:151
+msgid "Twice Hourly"
+msgstr ""
+
+#: plugins/help-scout-desk/controllers/_Controller.php:306
+msgid "Something failed."
+msgstr ""
+
+#: plugins/help-scout-desk/controllers/_Settings.php:171
+#: plugins/help-scout-desk/controllers/_Settings.php:172
+msgid "Sprout Apps"
+msgstr ""
+
+#: plugins/help-scout-desk/controllers/_Settings.php:418
+msgid "-- Select --"
+msgstr ""
+
+#: plugins/help-scout-desk/controllers/_Settings.php:459
+msgid "Cheatin&#8217; uh?"
+msgstr ""
+
+#: plugins/help-scout-desk/controllers/_Settings.php:462
+msgid "Saved"
+msgstr ""
+
+#: plugins/help-scout-desk/controllers/Customers.php:99
+msgid "User Sync"
+msgstr ""
+
+#: plugins/help-scout-desk/controllers/Customers.php:101
+msgid ""
+"All WordPress users will be sent to Help Scout. This should only be done "
+"once, since all new registrations are automatically added to Help Scout."
+msgstr ""
+
+#: plugins/help-scout-desk/controllers/Customers.php:114
+msgid "Sync Users"
+msgstr ""
+
+#: plugins/help-scout-desk/controllers/Customers.php:128
+msgid ""
+"Are you sure? This process could take a while so you may want to go get some "
+"coffee."
+msgstr ""
+
+#: plugins/help-scout-desk/controllers/Customers.php:195
+msgid "No progress!"
+msgstr ""
+
+#: plugins/help-scout-desk/controllers/Customers.php:203
+#, php-format
+msgid "Starting to sync %s users..."
+msgstr ""
+
+#: plugins/help-scout-desk/controllers/Customers.php:215
+#, php-format
+msgid "It happened, %s users are now in sync at Help Scout!"
+msgstr ""
+
+#: plugins/help-scout-desk/controllers/Customers.php:224
+#, php-format
+msgid "Some magic in the background has completed %s of the %s users..."
+msgstr ""
+
+#: plugins/help-scout-desk/controllers/Embeds.php:28
+msgid "No conversation id was provided, e.g. [hsd_conversation id=\"781242\"]."
+msgstr ""
+
+#: plugins/help-scout-desk/controllers/Forms.php:39
+#, php-format
+msgid "Thank you, message received. <a href=\"%s\">Send another message</a>."
+msgstr ""
+
+#: plugins/help-scout-desk/controllers/Forms.php:85
+msgid "Message Required."
+msgstr ""
+
+#: plugins/help-scout-desk/controllers/Forms.php:89
+msgid "Subject Required."
+msgstr ""
+
+#: plugins/help-scout-desk/controllers/Settings.php:64
+msgid "API Key"
+msgstr ""
+
+#: plugins/help-scout-desk/controllers/Settings.php:66
+msgid ""
+"To locate your API key, login to your Help Scout account and click the "
+"<b>User Profile</b> menu in the top-right corner. Visit <b>API Keys</b> and "
+"click to <b>Generate an API key</b>."
+msgstr ""
+
+#: plugins/help-scout-desk/controllers/Settings.php:72
+msgid "Mailbox ID"
+msgstr ""
+
+#: plugins/help-scout-desk/controllers/Settings.php:74
+msgid ""
+"When opening a mailbox within Help Scout, open the mailbox and click "
+"Settings in the bottom left corner of the mailbox filters list and click in "
+"Edit Mailbox. In the URL of the resulting settings screen, is your mailbox "
+"ID. Example, https://secure.helpscout.net/settings/mailbox/<b>123456</b>/"
+msgstr ""
+
+#: plugins/help-scout-desk/controllers/Settings.php:97
+msgid "Enter Help Scout API Information."
+msgstr ""
+
+#: plugins/help-scout-desk/controllers/Settings.php:101
+msgid ""
+"Make sure to setup your Help Scout API key and Mailbox ID before proceeding "
+"to these options / settings."
+msgstr ""
+
+#: plugins/help-scout-desk/controllers/Tags.php:144
+msgid "Tags"
+msgstr ""
+
+#: plugins/help-scout-desk/controllers/Tags.php:146
+msgid "Tags will be synced after checking this box and saving below."
+msgstr ""
+
+#: plugins/help-scout-desk/controllers/Tags.php:168
+msgid "Select the tags your customers have available to choose from."
+msgstr ""
+
+#: plugins/help-scout-desk/controllers/Tags.php:170
+msgid "Sync tags with the Help Scout"
+msgstr ""
+
+#: plugins/help-scout-desk/controllers/Updates.php:68
+msgid "Help Scout Desk Activation"
+msgstr ""
+
+#: plugins/help-scout-desk/controllers/Updates.php:73
+msgid "License Key"
+msgstr ""
+
+#: plugins/help-scout-desk/controllers/Updates.php:77
+#, php-format
+msgid ""
+"Enter your license key to enable automatic plugin updates. Find your license "
+"key in your Sprout Apps Dashboard under the <a href=\"%s\" target=\"_blank"
+"\">Downloads</a> section."
+msgstr ""
+
+#: plugins/help-scout-desk/controllers/Updates.php:91
+#: plugins/help-scout-desk/controllers/Updates.php:94
+msgid "Activate License"
+msgstr ""
+
+#: plugins/help-scout-desk/controllers/Updates.php:92
+msgid "Deactivate License"
+msgstr ""
+
+#: plugins/help-scout-desk/controllers/Updates.php:166
+#: plugins/help-scout-desk/controllers/Updates.php:214
+msgid "Thank you for supporting the future of Help Scout Desk and Sprout Apps."
+msgstr ""
+
+#: plugins/help-scout-desk/controllers/Updates.php:166
+msgid "License is not active."
+msgstr ""
+
+#: plugins/help-scout-desk/controllers/Updates.php:190
+msgid "License is deactivated."
+msgstr ""
+
+#: plugins/help-scout-desk/controllers/Updates.php:190
+msgid "Something went wrong. Contact support for help."
+msgstr ""
+
+#: plugins/help-scout-desk/controllers/Updates.php:214
+msgid "License is not valid."
+msgstr ""
+
+#: plugins/help-scout-desk/controllers/Updates.php:428
+#, php-format
+msgid ""
+"There is a new version of %1$s available. <a target=\"_blank\" class="
+"\"thickbox\" href=\"%2$s\">View version %3$s details</a>."
+msgstr ""
+
+#: plugins/help-scout-desk/controllers/Updates.php:435
+#, php-format
+msgid ""
+"There is a new version of %1$s available. <a target=\"_blank\" class="
+"\"thickbox\" href=\"%2$s\">View version %3$s details</a> or <a href=\"%4$s"
+"\">update now</a>."
+msgstr ""
+
+#: plugins/help-scout-desk/controllers/Updates.php:578
+msgid "You do not have permission to install plugin updates"
+msgstr ""
+
+#: plugins/help-scout-desk/controllers/Updates.php:578
+msgid "Error"
+msgstr ""
+
+#: plugins/help-scout-desk/controllers/edd/HelpScout_EDD_App.php:65
+#: plugins/help-scout-desk/controllers/woo/HelpScout_Woo_App.php:65
+msgid "Callback Url"
+msgstr ""
+
+#: plugins/help-scout-desk/controllers/edd/HelpScout_EDD_App.php:67
+#: plugins/help-scout-desk/controllers/woo/HelpScout_Woo_App.php:67
+msgid ""
+"When creating your Custom App select \"Dynamic Content\" as the content "
+"type. You will then be able to enter this callback url."
+msgstr ""
+
+#: plugins/help-scout-desk/controllers/edd/HelpScout_EDD_App.php:73
+#: plugins/help-scout-desk/controllers/woo/HelpScout_Woo_App.php:73
+msgid "Secret Key"
+msgstr ""
+
+#: plugins/help-scout-desk/controllers/edd/HelpScout_EDD_App.php:75
+#: plugins/help-scout-desk/controllers/woo/HelpScout_Woo_App.php:75
+msgid ""
+"When creating your Custom App select \"Dynamic Content\" as the content "
+"type. You will then be able to enter this secret key (that was randomly "
+"generated for your site)."
+msgstr ""
+
+#: plugins/help-scout-desk/controllers/edd/HelpScout_EDD_App.php:91
+#: plugins/help-scout-desk/controllers/woo/HelpScout_Woo_App.php:91
+msgid ""
+"Help Scout Desk includes an Easy Digital Downloads custom app for Help "
+"Scout, just create a custom app in Help Scout with the integration "
+"information below. The sidebar block will be shown on the conversation view "
+"within Help Scout, showing customer purchase data and license information."
+msgstr ""
+
+#: plugins/help-scout-desk/controllers/edd/HelpScout_EDD_App_Handler.php:311
+msgid "Resend Purchase Receipt"
+msgstr ""
+
+#: plugins/help-scout-desk/controllers/woo/HelpScout_Woo_App_Handler.php:189
+msgid "Payment Gateway"
+msgstr ""
+
+#: plugins/help-scout-desk/template-tags/help-scout-desk.php:44
+msgid "closed"
+msgstr ""
+
+#: plugins/help-scout-desk/template-tags/help-scout-desk.php:47
+msgid "pending"
+msgstr ""
+
+#: plugins/help-scout-desk/template-tags/help-scout-desk.php:51
+msgid "active"
+msgstr ""
+
+#: plugins/help-scout-desk/views/admin/settings.php:14
+msgid "Saving..."
+msgstr ""
+
+#: plugins/help-scout-desk/views/admin/sprout-apps-dashboard.php:5
+#, php-format
+msgid "Welcome to <a href=\"%s\">Sprout Apps</a>!"
+msgstr ""
+
+#: plugins/help-scout-desk/views/admin/sprout-apps-dashboard.php:7
+msgid ""
+"Our mission is to build a suite of apps to help small businesses and "
+"freelancers work more efficiently by reducing the tedious business tasks "
+"associated with client management...<em>seriously though</em>, I'm trying to "
+"build something awesome that you will love. Thank you for your support."
+msgstr ""
+
+#: plugins/help-scout-desk/views/admin/sprout-apps-dashboard.php:11
+msgid "Sprout Apps News and Updates"
+msgstr ""
+
+#: plugins/help-scout-desk/views/admin/sprout-apps-dashboard.php:23
+msgid "Could not connect to SIserver for updates."
+msgstr ""
+
+#: plugins/help-scout-desk/views/section/tag-selection.php:2
+#: plugins/help-scout-desk/views/section/tag-selection.php:4
+msgid "Select Topic"
+msgstr ""
+
+#: plugins/help-scout-desk/views/shortcodes/conversation_form.php:17
+#: plugins/help-scout-desk/views/shortcodes/conversation_table.php:13
+msgid "Subject"
+msgstr ""
+
+#: plugins/help-scout-desk/views/shortcodes/conversation_form.php:18
+msgid "How can we help?"
+msgstr ""
+
+#: plugins/help-scout-desk/views/shortcodes/conversation_form.php:25
+msgid "Message"
+msgstr ""
+
+#: plugins/help-scout-desk/views/shortcodes/conversation_form.php:26
+msgid ""
+"Please include any information that you think will help us generate a speedy "
+"response."
+msgstr ""
+
+#: plugins/help-scout-desk/views/shortcodes/conversation_form.php:28
+msgid "This will add a message to our current conversation."
+msgstr ""
+
+#: plugins/help-scout-desk/views/shortcodes/conversation_form.php:35
+msgid "Add attachments"
+msgstr ""
+
+#: plugins/help-scout-desk/views/shortcodes/conversation_form.php:43
+msgid "Close Support Thread"
+msgstr ""
+
+#: plugins/help-scout-desk/views/shortcodes/conversation_form.php:57
+#: plugins/help-scout-desk/views/shortcodes/email_form.php:15
+msgid "Submit"
+msgstr ""
+
+#: plugins/help-scout-desk/views/shortcodes/conversation_table.php:11
+msgid "Status"
+msgstr ""
+
+#: plugins/help-scout-desk/views/shortcodes/conversation_table.php:12
+msgid "Thread"
+msgstr ""
+
+#: plugins/help-scout-desk/views/shortcodes/conversation_table.php:14
+msgid "Preview"
+msgstr ""
+
+#: plugins/help-scout-desk/views/shortcodes/conversation_table.php:15
+msgid "Date"
+msgstr ""
+
+#: plugins/help-scout-desk/views/shortcodes/conversation_table.php:42
+msgid "No support requests found."
+msgstr ""
+
+#: plugins/help-scout-desk/views/shortcodes/email_form.php:9
+msgid "Your e-mail"
+msgstr ""
+
+#: plugins/help-scout-desk/views/shortcodes/email_form.php:10
+msgid "you@gmail.com"
+msgstr ""
+
+#: plugins/help-scout-desk/views/shortcodes/single_conversation.php:24
+#: plugins/help-scout-desk/views/shortcodes/single_conversation_embed.php:11
+#, php-format
+msgid "By %s on %s"
+msgstr ""
+
+#: plugins/help-scout-desk/views/shortcodes/single_conversation.php:55
+#: plugins/help-scout-desk/views/shortcodes/single_conversation_embed.php:31
+#, php-format
+msgid "%s on %s"
+msgstr ""
+
+#: plugins/help-scout-desk/views/shortcodes/single_conversation.php:78
+#: plugins/help-scout-desk/views/shortcodes/single_conversation_embed.php:54
+msgid "Attachments"
+msgstr ""
+
+#: plugins/help-scout-desk/views/shortcodes/single_conversation.php:94
+#: plugins/help-scout-desk/views/shortcodes/single_conversation_embed.php:70
+#, php-format
+msgid "<b>%s</b> of %s"
+msgstr ""
+
+#: plugins/help-scout-desk/views/shortcodes/single_conversation.php:104
+#: plugins/help-scout-desk/views/shortcodes/single_conversation_embed.php:80
+#, php-format
+msgid "%s by %s on %s"
+msgstr ""

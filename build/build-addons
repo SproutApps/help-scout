@@ -1,0 +1,30 @@
+#!/bin/sh
+
+addons=(
+)
+
+echo "Extracting list of add-ons..."
+echo ""
+for addon in ${addons[@]}
+do
+	dir=$(echo $addon | cut -f1 -d\|)
+	pluginname=$(echo $addon | cut -f2 -d\|)
+
+	cd $dir
+
+	echo "Dir: $dir"
+	echo "Building Add-on: $pluginname"
+
+	rm -rf ~/Desktop/HSDBuild/$pluginname.zip;
+	rsync -a . ~/Desktop/HSDBuild/$pluginname/ --exclude='.*';
+	cd ~/Desktop/HSDBuild/;
+	zip -r $pluginname.zip $pluginname;
+	rm -Rf ~/Desktop/HSDBuild/$pluginname/;
+
+	# echo "Replacing the readme.txt within dropbox.\n";
+	# cp $dir/readme.txt /Users/dancameron/Dropbox/Public/$pluginname-readme.txt
+
+	echo "Added to Desktop"
+	echo ""
+
+done

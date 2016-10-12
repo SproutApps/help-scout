@@ -1,0 +1,593 @@
+/**
+ * I do apologize for anything you might see below. I do have really high standards for style sheet organization and
+ * I left that at the door trying to get this first version released.
+ *
+ * FUTURE Organize
+ */
+
+/**
+ * Font face
+ */
+
+@font-face {
+	font-family: "sproutapps-ff";
+	src: url("sproutapps-ff/sproutapps-ff.eot");
+	src: url("sproutapps-ff/sproutapps-ff.eot?#iefix") format("embedded-opentype"),
+       url("sproutapps-ff/sproutapps-ff.woff") format("woff"),
+       url("sproutapps-ff/sproutapps-ff.ttf") format("truetype"),
+       url("sproutapps-ff/sproutapps-ff.svg#sproutapps-ff") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+
+.icon-register:before,
+.icon-vault:before,
+.icon-receipt:before,
+.icon-sproutapps-estimates:before,
+.icon-calculator:before,
+.icon-lightsaber:before,
+.icon-notebook:before,
+.icon-percentage:before,
+.icon-badge:before,
+.icon-sproutapps-invoices:before,
+.icon-hour-glass:before,
+.icon-abacus:before,
+.icon-handshake:before,
+.icon-light-saber:before,
+.icon-hackathon:before,
+.icon-golf:before,
+.icon-sproutapps-logo:before,
+.icon-coins:before,
+.icon-sproutapps-flat:before {
+	font-family: "sproutapps-ff";
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	display: inline-block;
+	text-decoration: inherit;
+}
+
+.icon-handshake:before {
+	content: "\e615";
+}
+
+.icon-lightsaber:before {
+	content: "\e604";
+}
+
+.icon-vault:before {
+	content: "\e614";
+}
+
+.icon-sproutapps-flat:before {
+	content: "\e600";
+}
+
+.icon-sproutapps-logo:before {
+	content: "\e601";
+}
+
+.icon-sproutapps-invoices:before,
+.icon-invoice:before {
+	content: "\e602";
+}
+
+.icon-golf:before {
+	content: "\e603";
+}
+
+.icon-help-solid:before {
+	content: "\e605";
+}
+
+.icon-info-solid:before {
+	content: "\e606";
+}
+
+.icon-info:before {
+	content: "\e607";
+}
+
+.icon-question:before {
+	content: "\e608";
+}
+
+.icon-sproutapps-estimates:before,
+.icon-estimate:before {
+	content: "\e609";
+}
+
+.icon-hour-glass:before {
+	content: "\e60a";
+}
+
+.icon-percent:before {
+	content: "\e60b";
+}
+
+.icon-abacus:before {
+	content: "\e60c";
+}
+
+.icon-calculator:before {
+	content: "\e60d";
+}
+
+.icon-register:before {
+	content: "\e60e";
+}
+
+.icon-hackathon:before {
+	content: "\e60f";
+}
+
+.icon-coins:before {
+	content: "\e610";
+}
+
+.icon-checklist:before {
+	content: "\e611";
+}
+
+.icon-notebook:before {
+	content: "\e612";
+}
+
+.icon-piggy-bank:before {
+	content: "\e613";
+}
+
+
+
+#time_import_question_answer_upgrade:before,
+#time_import_question_answer:before {
+	font-family: 'dashicons';
+	vertical-align: top;
+    margin-right: 4px;
+	content: "\f321"
+}
+
+
+#wpadminbar #wp-admin-bar-si_menu .icon-sproutapps-flat.ab-icon {
+	font-size: 2em !important;
+	top: -2px;
+}
+
+#wpadminbar #wp-admin-bar-si_time_tracker .ab-icon {
+	top: 2px;
+	left: 4px;	
+}
+/**
+ * Misc
+ */
+
+.clearfix:after {
+	content: ".";
+	display: block;
+	clear: both;
+	visibility: hidden;
+	line-height: 0;
+	height: 0
+}
+
+.clearfix {
+	display: inline-block
+}
+
+html[xmlns] .clearfix {
+	display: block
+}
+
+* html .clearfix {
+	height: 1%
+}
+
+input[type=date] {
+	border: 1px solid #ddd;
+	-webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,.07);
+	box-shadow: inset 0 1px 2px rgba(0,0,0,.07);
+	background-color: #fff;
+	color: #333;
+}
+
+.helptip:hover {
+	cursor: help
+}
+
+.helptip:after {
+	content: '\f223';
+	color: #C7C7C7;
+	font: 400 20px/1 dashicons;
+	speak: none;
+	display: inline-block;
+	padding: 0 2px 0 0;
+	top: 0;
+	left: -1px;
+	position: relative;
+	vertical-align: top;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	text-decoration: none!important
+}
+
+.cloak {
+	display: none
+}
+
+.sr-only {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip: rect(0,0,0,0);
+	border: 0
+}
+
+form.si_settings_form table .wp-editor-wrap {
+	max-width: 600px;
+}
+
+.select2 {
+	min-width: 210px;
+}
+
+.del_button {
+	cursor: pointer;
+	width: 20px;
+	height: 20px;
+	display: inline-block;
+	float: left;
+	text-indent: 0;
+	overflow: hidden;
+	position: absolute;
+}
+.del_button:before {
+	background: 0 0;
+	color: #bbb;
+	content: '\f153';
+	display: block!important;
+	font: 400 16px/1 dashicons;
+	speak: none;
+	height: 20px;
+	text-align: center;
+	width: 20px;
+	-webkit-font-smoothing: antialiased!important;
+}
+
+/**
+ * General
+ */
+
+.td_center {
+	vertical-align: center;
+	text-align: center;
+}
+
+/**
+ * Copy of button-large
+ */
+
+.fat-input {
+	padding: 8px 20px 10px !important;
+	height: 46px !important;
+	font-size: 14px;
+	line-height: 28px !important;
+}
+
+/**
+ * Welcome
+ */
+
+#si_dashboard h1 a {
+	color: inherit;
+	text-decoration: none;
+}
+
+#si_dashboard .headline_callout {
+	margin: 1.1em 0 .2em;
+	font-size: 2.4em;
+	font-weight: 300;
+	line-height: 1.3;
+	text-align: center;
+}
+
+#si_dashboard.welcome_content {
+	margin-bottom: 30px;
+}
+
+#si_dashboard .header_sa_logo {
+	float: right;
+	max-height: 175px;
+	width: auto;
+}
+
+#si_dashboard.sprout_apps_dash .header_sa_logo {
+	max-height: 125px;
+}
+
+#si_dashboard .flow_icon {
+	/* margin-top: -60px; */
+	font-size: 20vw;
+	text-align: center;
+	display: block;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+/*/
+#si_dashboard .flow_icon.icon-handshake {
+	color: #55B5E8;
+}
+#si_dashboard .flow_icon.icon-sproutapps-estimates {
+	color: #FFA500;
+}
+#si_dashboard .flow_icon.icon-sproutapps-invoices {
+	color: #86BD48;
+}
+/**/
+
+#si_dashboard .flow_icon.icon-sproutapps-invoices {
+	font-size: 16vw;
+	margin-top: 30px;
+	margin-bottom: 55px;
+}
+
+#si_dashboard .feature-section {
+	margin-top: 10px;
+}
+
+img.footer_sa_logo {
+	width: 40%;
+	float: none !important;
+	margin-left: 30% !important;
+	margin-top: 30px !important;
+}
+
+#si_dashboard .rss_widget h4 {
+	display: inline-block;
+}
+
+#si_dashboard .rss_date {
+	display: inline-block;
+	margin-left: 10px;
+}
+
+#si_dashboard .welcome-panel {
+	overflow: visible;
+	padding-bottom: 30px;
+}
+
+#si_dashboard .rss_widget {
+	width: 55%;
+	margin-right: 5%;
+	float: left;
+}
+
+#si_dashboard iframe#twitter-widget-0 {
+	width: 40% !important;
+	float: right;
+}
+
+#si_dashboard.sprout_apps_dash .feature-section {
+	margin-top: 50px;
+}
+
+#si_dashboard .add_on_img_wrap,
+.sa_addon {
+	width: 90%;
+	position: relative;
+	text-align: center;
+	border: 1px solid #e5e5e5;
+	-webkit-box-shadow: 0 1px 1px rgba(0,0,0,.04);
+	box-shadow: 0 1px 1px rgba(0,0,0,.04);
+	background: #fff;
+	padding: 5%;
+}
+form table .sa_addon {
+	width: 200px;
+	margin-bottom: 30px;
+}
+#si_dashboard .add_on_img_wrap img,
+.sa_addon img {
+	max-width: 100%;
+	height: auto;
+}
+
+#si_dashboard .add_on_img_wrap a.purchase_button,
+.sa_addon a.purchase_button {
+	position: absolute;
+	bottom: -5%;
+	right: -5%;
+}
+
+#si_dashboard .sa_addon_wrap h4,
+.sa_addon h4 {
+	font-size: 1em;
+	font-weight: 300;
+	text-align: left;
+	background: rgba( 255, 255, 255, .9);
+	margin: 0px;
+	padding: 5%;
+	width: 90%;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+
+#menu-posts-sa_estimate .wp-menu-image:before {
+	font-family: "sproutapps-ff";
+	content: "\e609";
+	font-weight: bold;
+}
+
+#menu-posts-sa_invoice .wp-menu-image:before {
+	font-family: "sproutapps-ff";
+	content: "\e602";
+	font-weight: bold;
+}
+
+#toplevel_page_help-scout-desk .wp-menu-image:before {
+	font-family: "sproutapps-ff";
+	content: "\e600";
+	margin-left: -8px;
+}
+@-moz-document url-prefix() {
+   #toplevel_page_sprout-apps .wp-menu-image:before {
+		font-size: 32px;
+		margin-top: -2px;
+		margin-left: -12px;
+	}
+}
+
+#toplevel_page_sprout-apps li.wp-first-item {
+	display: none;
+}
+
+.si_inline_spinner {
+	float: none;
+	margin: 0 5px -6px
+}
+
+span.inline_error_message {
+	margin-left: 10px;
+	color: red;
+	font-weight: 300
+}
+
+span.inline_success_message {
+	margin-left: 10px;
+	color: green;
+	font-weight: 300
+}
+
+#license_message {
+	margin: 5px 0px 10px 2px;
+}
+
+#license_message span.inline_success_message,
+#license_message span.inline_error_message {
+	margin-left: 0;
+}
+
+#si_dashboard .three-col>div.last-feature {
+    margin-right: 0px;
+}
+
+
+
+/**
+ * Import
+ */
+
+#hsd_user_sync .progress {
+  overflow: hidden;
+  height: 25px;
+  margin-top: 5px;
+  margin-bottom: 25px;
+  background-color: #FFF;
+  border-radius: 2px;
+  border: 1px solid #CCC;
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+#hsd_user_sync .progress-bar {
+  float: left;
+  width: 0%;
+  height: 100%;
+  font-size: 12px;
+  line-height: 20px;
+  color: #ffffff;
+  text-align: center;
+  background-color: #428bca;
+  -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+  -webkit-transition: width 0.6s ease;
+  -o-transition: width 0.6s ease;
+  transition: width 0.6s ease;
+}
+#hsd_user_sync .progress-striped .progress-bar,
+#hsd_user_sync .progress-bar-striped {
+  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-size: 40px 40px;
+}
+#hsd_user_sync .progress.active .progress-bar,
+#hsd_user_sync .progress-bar.active {
+  -webkit-animation: progress-bar-stripes 2s linear infinite;
+  -o-animation: progress-bar-stripes 2s linear infinite;
+  animation: progress-bar-stripes 2s linear infinite;
+}
+#hsd_user_sync .progress-bar[aria-valuenow="1"],
+#hsd_user_sync .progress-bar[aria-valuenow="2"] {
+  min-width: 30px;
+}
+#hsd_user_sync .progress-bar[aria-valuenow="0"] {
+  color: #777777;
+  min-width: 30px;
+  background-color: transparent;
+  background-image: none;
+  box-shadow: none;
+}
+#hsd_user_sync .progress-bar-success {
+  background-color: #5cb85c;
+}
+#hsd_user_sync .progress-bar-error {
+  background-color: #CA4242;
+}
+#hsd_user_sync .progress-striped .progress-bar-success {
+  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+}
+#hsd_user_sync .progress-bar-info {
+  background-color: #5bc0de;
+}
+#hsd_user_sync .progress-striped .progress-bar-info {
+  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+}
+#hsd_user_sync .progress-bar-warning {
+  background-color: #f0ad4e;
+}
+#hsd_user_sync .progress-striped .progress-bar-warning {
+  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+}
+#hsd_user_sync .progress-bar-danger {
+  background-color: #d9534f;
+}
+#hsd_user_sync .progress-striped .progress-bar-danger {
+  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: -o-linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.15) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.15) 50%, rgba(255, 255, 255, 0.15) 75%, transparent 75%, transparent);
+}
+@-webkit-keyframes progress-bar-stripes { 
+    from { background-position: 0 0 }
+
+    to { background-position: 40px 0 }
+}
+
+@-moz-keyframes progress-bar-stripes { 
+    from { background-position: 0 0 }
+
+    to { background-position: 40px 0 }
+}
+
+@keyframes progress-bar-stripes { 
+    from { background-position: 0 0 }
+
+    to { background-position: 40px 0 }
+}
