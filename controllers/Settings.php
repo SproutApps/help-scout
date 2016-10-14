@@ -51,6 +51,12 @@ class HSD_Settings extends HSD_Controller {
 			'reset' => false,
 			'section' => self::SETTINGS_PAGE,
 			);
+
+		if ( HSD_FREE ) {
+			$args['title'] = 'Help Scout Settings';
+			$args['menu_title'] = 'Help Scout Plugin';
+		}
+
 		do_action( 'sprout_settings_page', $args );
 
 		// Settings

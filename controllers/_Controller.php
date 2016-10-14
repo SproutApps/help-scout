@@ -37,6 +37,22 @@ abstract class HSD_Controller extends HelpScout_Desk {
 		add_filter( 'cron_schedules', array( __CLASS__, 'hsd_cron_schedule' ) );
 		add_action( 'init', array( __CLASS__, 'set_schedule' ), 10, 0 );
 
+		add_filter( 'admin_footer_text', array( __CLASS__, 'please_rate_hs' ), 1, 2 );
+	}
+
+	public static function please_rate_hs( $footer_text ) {
+		if ( self::is_hsd_admin() ) {
+			$footer_text = sprintf( __( 'Please support the future of <strong>Help Scout</strong> by rating the free version <a href="%1$s" target="_blank">&#9733;&#9733;&#9733;&#9733;&#9733;</a> on <a href="%1$s" target="_blank">WordPress.org</a>. Have an awesome %2$s!', 'help-scout-desk' ), 'http://wordpress.org/support/view/plugin-reviews/help-scout?filter=5', date_i18n('l') );
+		}
+		return $footer_text;
+	}
+
+	public static function is_hsd_admin() {
+		$screen = get_current_screen();
+		if ( 'toplevel_page_help-scout-desk' === $screen->id || 'sprout-apps_page_help-scout-desk/help_scout_desk' === $screen->id ) {
+			return true;
+		}
+		return false;
 	}
 
 	/////////////////

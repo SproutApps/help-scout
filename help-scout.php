@@ -8,7 +8,7 @@
 /*
  * Plugin Name: Help Scout
  * Plugin URI: https://helpscout.net/wordpress-plugin/
- * Description: Allows for Help Scout conversations to be easily created on your site, with full beacon support. If you're wanting to display conversations on your site checkout <a href="https://sproutapps.co/help-scout-desk-wordpress-plugin/">Help Scout Desk</a>.
+ * Description: Allows for Help Scout conversations to be easily created on your site, with full beacon support. If you're wanting to display conversations on your site checkout <a href="https://sproutapps.co/help-scout-desk-wordpress-plugin/?utm_medium=link&utm_campaign=hsfree&utm_source=wordpress.org">Help Scout Desk</a>.
  * Author: Sprout Apps
  * Version: 4.0
  * Author URI: https://sproutapps.co
@@ -16,7 +16,7 @@
  * Domain Path: languages
 */
 
-define( 'HSD_FREE_TEST', true );
+define( 'HSD_FREE', true );
 
 /**
  * SI directory

@@ -44,27 +44,27 @@ function helpscout_desk_load() {
 	require_once HSD_PATH.'/controllers/Forms.php';
 	HSD_Forms::init();
 
-	if ( ! HSD_FREE_TEST && file_exists( HSD_PATH.'/controllers/Embeds.php' ) ) {
+	if ( ! HSD_FREE && file_exists( HSD_PATH.'/controllers/Embeds.php' ) ) {
 		require_once HSD_PATH.'/controllers/Embeds.php';
 		HSD_Embeds::init();
 	}
 
-	if ( ! HSD_FREE_TEST && file_exists( HSD_PATH.'/controllers/Conversations.php' ) ) {
+	if ( ! HSD_FREE && file_exists( HSD_PATH.'/controllers/Conversations.php' ) ) {
 		require_once HSD_PATH.'/controllers/Conversations.php';
 		HSD_Conversations::init();
 	}
 
-	if ( ! HSD_FREE_TEST && file_exists( HSD_PATH.'/controllers/AJAX.php' ) ) {
+	if ( ! HSD_FREE && file_exists( HSD_PATH.'/controllers/AJAX.php' ) ) {
 		require_once HSD_PATH.'/controllers/AJAX.php';
 		HSD_AJAX::init();
 	}
 
-	if ( ! HSD_FREE_TEST && file_exists( HSD_PATH.'/controllers/Tags.php' ) ) {
+	if ( ! HSD_FREE && file_exists( HSD_PATH.'/controllers/Tags.php' ) ) {
 		require_once HSD_PATH.'/controllers/Tags.php';
 		HSD_Tags::init();
 	}
 
-	if ( ! HSD_FREE_TEST && file_exists( HSD_PATH.'/controllers/Customers.php' ) ) {
+	if ( ! HSD_FREE && file_exists( HSD_PATH.'/controllers/Customers.php' ) ) {
 		require_once HSD_PATH.'/controllers/Customers.php';
 		HSD_Customers::init();
 	}
@@ -72,11 +72,11 @@ function helpscout_desk_load() {
 	require_once HSD_PATH.'/controllers/Beacon.php';
 	HSD_Beacon::init();
 
-	if ( ! HSD_FREE_TEST && file_exists( HSD_PATH.'/controllers/Email_Login.php' ) ) {
+	if ( ! HSD_FREE && file_exists( HSD_PATH.'/controllers/Email_Login.php' ) ) {
 		require_once HSD_PATH.'/controllers/Email_Login.php';
 	}
 
-	if ( ! HSD_FREE_TEST && file_exists( HSD_PATH.'/controllers/integrations/edd/HelpScout_EDD_App.php' ) ) {
+	if ( ! HSD_FREE && file_exists( HSD_PATH.'/controllers/integrations/edd/HelpScout_EDD_App.php' ) ) {
 
 		if ( class_exists( 'Easy_Digital_Downloads' ) ) {
 			require_once HSD_PATH.'/controllers/integrations/edd/HelpScout_EDD_App.php';
@@ -100,7 +100,7 @@ function helpscout_desk_load() {
 		}
 	}
 
-	if ( ! HSD_FREE_TEST && file_exists( HSD_PATH.'/controllers/Updates.php' ) ) {
+	if ( ! HSD_FREE && file_exists( HSD_PATH.'/controllers/Updates.php' ) ) {
 		require_once HSD_PATH.'/controllers/Updates.php';
 		HSD_Updates::init();
 	}

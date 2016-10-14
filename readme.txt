@@ -1,7 +1,7 @@
 === Help Scout - The Official Plugin for WordPress ===
 Contributors: dancameron, sproutapps
 Donate link: https://sproutapps.co/
-Tags: help, support, documentation
+Tags: help, support, documentation, helpdesk
 Requires at least: 4.0
 Tested up to: 4.6
 Stable tag: 4.0
@@ -13,7 +13,7 @@ Join the many WordPress professionals using Help Scout Desk to provide customers
 == Description ==
 
 > <strong>Help Scout Desk</strong><br>
-> If you're wanting to display conversations on your site checkout [Help Scout Desk](https://sproutapps.co/help-scout-desk-wordpress-plugin/?utm_medium=link&utm_campaign=free&utm_source=wordpress.org).
+> Sprout Apps would like you to have a look at [Help Scout Desk](https://sproutapps.co/help-scout-desk-wordpress-plugin/?utm_medium=link&utm_campaign=hsfree&utm_source=wordpress.org). HSD brings full helpdesk functionality to your WordPress site.
 
 = Help Scout – Official WordPress Plugin for Help Scout =
 
@@ -28,7 +28,7 @@ Feature Overview:
 * Add a support request form to your site via a shortcode.
 * Easily add a [Help Scout Beacon](https://www.helpscout.net/embed-tools/) to your site.
 * Support form uses AJAX and Help Scout's terrific API, giving instant submissions without routing via email.
-* Uses the core of [Help Scout Desk](https://sproutapps.co/help-scout-desk-wordpress-plugin/?utm_medium=link&utm_campaign=free&utm_source=wordpress.org), a popular premium plugin that has handled these same features and a lot more since 2014.
+* Uses the core of [Help Scout Desk](https://sproutapps.co/help-scout-desk-wordpress-plugin/?utm_medium=link&utm_campaign=hsfree&utm_source=wordpress.org), a popular premium plugin that has handled these same features and a lot more since 2014.
 * Allows for multiple attachments when creating conversation.
 
 
@@ -40,7 +40,7 @@ Feature Overview:
 
 == Frequently Asked Questions ==
 
-**Please visit [Sprout Apps](http://docs.sproutapps.co/collection/14-help-scout-desk?utm_medium=link&utm_campaign=free&utm_source=wordpress.org).**
+**Please visit [Sprout Apps](http://docs.sproutapps.co/collection/14-help-scout-desk?utm_medium=link&utm_campaign=hsfree&utm_source=wordpress.org).**
 
 
 == Screenshots ==

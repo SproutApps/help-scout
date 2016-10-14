@@ -7,13 +7,17 @@
  * @package SI
  */
 
-if ( ! defined( 'HSD_FREE_TEST' ) ) {
-	define( 'HSD_FREE_TEST', false ); }
+if ( ! defined( 'HSD_FREE' ) ) {
+	define( 'HSD_FREE', false ); }
 
 if ( ! defined( 'HSD_DEV' ) ) {
 	define( 'HSD_DEV', false ); }
 
 abstract class HelpScout_Desk {
+	/**
+	 * Application app-domain
+	 */
+	const APP_DOMAIN = 'help-scout-desk';
 
 	/**
 	 * Application text-domain

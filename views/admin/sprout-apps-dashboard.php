@@ -2,9 +2,9 @@
 
 	<img class="header_sa_logo" src="<?php echo HSD_RESOURCES . 'admin/icons/sproutapps.png' ?>" />
 
-	<h1><?php printf( __( 'Welcome to <a href="%s">Sprout Apps</a>!', 'help-scout-desk' ), self::PLUGIN_URL ); ?></h1>
+	<h1><?php printf( __( '<a href="%s">Sprout Apps</a> thanks you!', 'help-scout-desk' ), self::PLUGIN_URL ); ?></h1>
 
-	<div class="about-text"><?php _e( 'Our mission is to build a suite of apps to help small businesses and freelancers work more efficiently by reducing the tedious business tasks associated with client management...<em>seriously though</em>, I\'m trying to build something awesome that you will love. Thank you for your support.', 'help-scout-desk' ) ?></div>
+	<div class="about-text"><?php _e( 'Much thanks to Help Scout for partnering in this creation of this plugin, hopefully it helps your enjoyment of Help Scout. Our mission at Sprout Apps is to build a suite of apps/plugins to help small businesses and freelancers work more efficiently by reducing the tedious business tasks associated with client management...<em>seriously though</em>, I\'m trying to build something awesome that you will love. ', 'help-scout-desk' ) ?></div>
 
 	<div id="welcome-panel" class="welcome-panel clearfix">
 		<div class="welcome-panel-content">

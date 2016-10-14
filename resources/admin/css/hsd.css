@@ -449,7 +449,7 @@ form table .sa_addon {
 	}
 }
 
-#toplevel_page_sprout-apps li.wp-first-item {
+#toplevel_page_help-scout-desk li.wp-first-item {
 	display: none;
 }
 
@@ -590,4 +590,23 @@ span.inline_success_message {
     from { background-position: 0 0 }
 
     to { background-position: 40px 0 }
+}
+
+/**
+ * Upgrades
+ */
+.upgrade_message {
+	margin: 5px 0 15px;
+	padding: 1px 12px;
+	background-color: #fff;
+	border-left: 4px solid #FFA500;
+	-webkit-box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+	box-shadow: 0 1px 1px 0 rgba(0,0,0,.1);
+	zoom: 1.4;
+}
+.upgrade_message .icon-sproutapps-flat {
+	font-size: 2em;
+	line-height: 1px;
+	float: left;
+	margin-top: -.1em;
 }

@@ -1,5 +1,6 @@
 - /help-scout-desk.php
 - /changelog.txt
+- /resources/plugins/select2
 - /controllers/integrations
 - /controllers/Customers.php
 - /controllers/Email_Login.php
