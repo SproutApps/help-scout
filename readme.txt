@@ -1,4 +1,4 @@
-=== Help Scout - The Official Plugin for WordPress ===
+=== Help Scout - Easily Bring Help Scout to WordPress ===
 Contributors: dancameron, sproutapps
 Donate link: https://sproutapps.co/
 Tags: help, support, documentation, helpdesk
@@ -12,12 +12,12 @@ Join the many WordPress professionals using Help Scout Desk to provide customers
 
 == Description ==
 
-> <strong>Help Scout Desk</strong><br>
-> Sprout Apps would like you to have a look at [Help Scout Desk](https://sproutapps.co/help-scout-desk-wordpress-plugin/?utm_medium=link&utm_campaign=hsfree&utm_source=wordpress.org). HSD brings full helpdesk functionality to your WordPress site.
-
 = Help Scout – Official WordPress Plugin for Help Scout =
 
 Make every customer support interaction more human & more helpful.
+
+> <strong>Help Scout Desk</strong><br>
+> Sprout Apps would like you to have a look at [Help Scout Desk](https://sproutapps.co/help-scout-desk-wordpress-plugin/?utm_medium=link&utm_campaign=hsfree&utm_source=wordpress.org). HSD brings full helpdesk functionality to your WordPress site.
 
 = Help Scout Features =
 
