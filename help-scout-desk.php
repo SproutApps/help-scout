@@ -35,7 +35,6 @@ define( 'HSD_URL', plugins_url( '', __FILE__ ) );
  */
 define( 'HSD_RESOURCES', plugins_url( 'resources/', __FILE__ ) );
 
-
 /**
  * Load plugin
  */

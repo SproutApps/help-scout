@@ -16,8 +16,6 @@
  * Domain Path: languages
 */
 
-define( 'HSD_FREE', true );
-
 /**
  * SI directory
  */
@@ -35,6 +33,9 @@ define( 'HSD_URL', plugins_url( '', __FILE__ ) );
  * URL to resources directory
  */
 define( 'HSD_RESOURCES', plugins_url( 'resources/', __FILE__ ) );
+
+define( 'HSD_FREE', true );
+define( 'SUPPORT_URL', 'http://docs.sproutapps.co/collection/166-help-scout' );
 
 /**
  * Load plugin

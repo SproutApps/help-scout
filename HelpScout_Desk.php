@@ -13,6 +13,10 @@ if ( ! defined( 'HSD_FREE' ) ) {
 if ( ! defined( 'HSD_DEV' ) ) {
 	define( 'HSD_DEV', false ); }
 
+if ( ! defined( 'SUPPORT_URL' ) ) {
+	define( 'SUPPORT_URL', 'http://docs.sproutapps.co/collection/14-help-scout-desk' );
+}
+
 abstract class HelpScout_Desk {
 	/**
 	 * Application app-domain
