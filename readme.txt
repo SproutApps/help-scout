@@ -4,7 +4,7 @@ Donate link: https://sproutapps.co/
 Tags: help, support, documentation, helpdesk
 Requires at least: 4.0
 Tested up to: 4.6
-Stable tag: 4.0
+Stable tag: 4.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -55,7 +55,7 @@ First Release
 
 == Changelog ==
 
-= 4.0 =
+= 4.0.1 =
 
 * New: Support for Free Help Scout Plugin
 * Fix: All tags will be in-sync
