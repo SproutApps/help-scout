@@ -82,6 +82,10 @@ class SA_Settings_API extends HSD_Controller {
 	// Admin Pages //
 	//////////////////
 
+	public static function manage_capability() {
+		return apply_filters( 'manage_help_scout_options', 'manage_options' );
+	}
+
 	/**
 	 * Register a settings sub-page in the plugin's menu
 	 * @param  array $args
@@ -105,7 +109,7 @@ class SA_Settings_API extends HSD_Controller {
 			'ajax_full_page' => false,
 			'add_new' => '',
 			'add_new_post_type' => '',
-			'capability' => 'manage_sprout_clients_options',
+			'capability' => self::manage_capability(),
 		);
 		$parsed_args = wp_parse_args( $args, $defaults );
 		extract( $parsed_args );
@@ -139,6 +143,8 @@ class SA_Settings_API extends HSD_Controller {
 				'capability' => $capability,
 			);
 		}
+
+		error_log( 'self::$admin_pages' . print_r( self::$admin_pages, true ) );
 		return $page;
 	}
 
@@ -167,8 +173,8 @@ class SA_Settings_API extends HSD_Controller {
 	public static function add_admin_page() {
 
 		// Add parent menu for SI
-		self::$settings_page = add_menu_page( __( 'Sprout Apps', 'sprout-invoices' ), __( 'Sprout Apps', 'sprout-invoices' ), 'manage_sprout_clients_options', self::APP_DOMAIN );
-		add_submenu_page( self::APP_DOMAIN, __( 'Sprout Apps', 'sprout-invoices' ), __( 'Updates', 'sprout-invoices' ), 'manage_sprout_clients_options', self::APP_DOMAIN, array( __CLASS__, 'dashboard_page' ) );
+		self::$settings_page = add_menu_page( __( 'Sprout Apps', 'sprout-invoices' ), __( 'Sprout Apps', 'sprout-invoices' ), self::manage_capability(), self::APP_DOMAIN );
+		add_submenu_page( self::APP_DOMAIN, __( 'Sprout Apps', 'sprout-invoices' ), __( 'Updates', 'sprout-invoices' ), self::manage_capability(), self::APP_DOMAIN, array( __CLASS__, 'dashboard_page' ) );
 
 		// Sort submenus
 		uasort( self::$admin_pages, array( __CLASS__, 'sort_by_weight' ) );
@@ -192,7 +198,7 @@ class SA_Settings_API extends HSD_Controller {
 	 * @return void
 	 */
 	public static function default_admin_page() {
-		if ( ! current_user_can( 'manage_sprout_clients_options' ) ) {
+		if ( ! current_user_can( self::manage_capability() ) ) {
 			return; // not allowed to view this page
 		}
 		if ( isset( $_GET['settings-updated'] ) && isset( $_GET['settings-updated'] ) ) {
@@ -455,7 +461,7 @@ class SA_Settings_API extends HSD_Controller {
 				$option_page = ( isset( $options['option_page'] ) ) ? $options['option_page'] : 'general';
 
 				// capability check
-				$capability = apply_filters( "option_page_capability_{$option_page}", 'manage_sprout_clients_options' );
+				$capability = apply_filters( "option_page_capability_{$option_page}", self::manage_capability() );
 				if ( ! current_user_can( $capability ) ) {
 					wp_die( __( 'Cheatin&#8217; uh?' ) );
 				}
