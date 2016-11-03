@@ -37,6 +37,10 @@ Feature Overview:
 1. Upload plugin folder to the `/wp-content/plugins/` directory
 1. Activate the plugin through the 'Plugins' menu in WordPress
 1. View the new settings page within the admin to configure.
+1. Setup the API key and Mailbox id.
+1. Add `[hsd_form]` shortcode to a page or post to capture submissions OR use the Help Scout beacon.
+
+Have a look at the [getting started guide](http://docs.sproutapps.co/article/172-getting-started) for more detailed information on setting up Help Scout for WordPress.
 
 == Frequently Asked Questions ==
 

@@ -100,7 +100,7 @@ class HSD_Settings extends HSD_Controller {
 	//////////////////////
 
 	public static function display_general_section() {
-		printf( __( '<p>Enter Help Scout API Information. For setup help please review our <a href="%s">docs</a>.</p>', 'help-scout-desk' ), SUPPORT_URL );
+		printf( __( '<p>Enter Help Scout API Information below. For details on how to find this information and setting your pages/shortcodes please review the <a href="%s">documention</a>.</p>', 'help-scout-desk' ), SUPPORT_URL );
 	}
 
 	public static function section_desc() {
