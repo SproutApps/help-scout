@@ -1,50 +1,45 @@
-=== Help Scout - Easily Bring Help Scout to WordPress ===
-Contributors: dancameron, sproutapps
-Donate link: https://sproutapps.co/
-Tags: help, support, documentation, helpdesk
+=== Help Scout ===
+Contributors: helpscout, sproutapps, dancameron
+Tags: help, support, documentation, helpdesk, contact form, contact, help desk
 Requires at least: 4.0
 Tested up to: 4.6
 Stable tag: 4.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Join the many WordPress professionals using Help Scout Desk to provide customers with an easy way to create new support tickets on their WordPress sites.
+Help Scout for Wordpress enables you to add a simple contact form to your website, or embed [Help Scout Beacon](https://www.helpscout.net/embed-tools/) and provide your customers with instant answers from your knowledge base.
 
 == Description ==
 
-= Help Scout – Official WordPress Plugin for Help Scout =
+= Help Scout for Wordpress =
 
-Make every customer support interaction more human & more helpful.
+Thousands of businesses in more than 140 countries use Help Scout to make every customer support interaction more human & more helpful. 
 
-> <strong>Help Scout Desk</strong><br>
-> Sprout Apps would like you to have a look at [Help Scout Desk](https://sproutapps.co/help-scout-desk-wordpress-plugin/?utm_medium=link&utm_campaign=hsfree&utm_source=wordpress.org). HSD brings full helpdesk functionality to your WordPress site.
+= Features =
 
-= Help Scout Features =
+This simple plugin takes only a few minutes to setup. It enables you to do a couple important things:
 
-The official Help Scout plugin is rather simple from an admin's perspective. It allows you to add a support request form to your site via a customizable beacon or a customizable form.
+* Add a contact form to your site, which submits inquiriest to Help Scout
+* Add a [Help Scout Beacon](https://www.helpscout.net/embed-tools/) to your site. Just paste your embed code and save.
 
-Feature Overview:
-
-* Add a support request form to your site via a shortcode.
-* Easily add a [Help Scout Beacon](https://www.helpscout.net/embed-tools/) to your site.
-* Support form uses AJAX and Help Scout's terrific API, giving instant submissions without routing via email.
-* Uses the core of [Help Scout Desk](https://sproutapps.co/help-scout-desk-wordpress-plugin/?utm_medium=link&utm_campaign=hsfree&utm_source=wordpress.org), a popular premium plugin that has handled these same features and a lot more since 2014.
-* Allows for multiple attachments when creating conversation.
-
+> <strong>Looking for more horsepower? Try Help Scout Desk.</strong><br>
+> [Help Scout Desk](https://sproutapps.co/help-scout-desk-wordpress-plugin/?utm_medium=link&utm_campaign=hsfree&utm_source=wordpress.org) is a premium plugin that adds a full-featured customer portal to your Wordpress site. Customers can submit inquiries, see their complete history and more.
 
 == Installation ==
 
-1. Upload plugin folder to the `/wp-content/plugins/` directory
-1. Activate the plugin through the 'Plugins' menu in WordPress
-1. View the new settings page within the admin to configure.
-1. Setup the API key and Mailbox id.
-1. Add `[hsd_form]` shortcode to a page or post to capture submissions OR use the Help Scout beacon.
+1. [Sign up for Help Scout](https://secure.helpscout.net/members/register/13/) if you don't already have an account.
+1. Upload plugin folder to your `/wp-content/plugins/` directory
+1. Activate the plugin through the **Plugins** menu in WordPress
+1. Open the settings for the plugin, then add your API key and Mailbox ID.
+1. Add `[hsd_form]` shortcode to a page or post to capture contact submissions OR use the Help Scout beacon.
 
 Have a look at the [getting started guide](http://docs.sproutapps.co/article/172-getting-started) for more detailed information on setting up Help Scout for WordPress.
 
 == Frequently Asked Questions ==
 
-**Please visit [Sprout Apps](http://docs.sproutapps.co/collection/14-help-scout-desk?utm_medium=link&utm_campaign=hsfree&utm_source=wordpress.org).**
+= Does this work if I'm on the Help Scout Free plan? =
+
+Beacon is included on all Free plans, so you can embed your Beacon using this plugin. However, the contact form requires an API key, and API access is only available for paying plans.
 
 
 == Screenshots ==
