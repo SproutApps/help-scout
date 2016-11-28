@@ -7,7 +7,7 @@ Stable tag: 4.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Help Scout for Wordpress enables you to add a simple contact form to your website, or embed [Help Scout Beacon](https://www.helpscout.net/embed-tools/) and provide your customers with instant answers from your knowledge base.
+Add a contact form to your website, or embed Help Scout Beacon for instant answers from your knowledge base.
 
 == Description ==
 
