@@ -148,6 +148,10 @@ class HelpScout_API extends HSD_Controller {
 			$mailbox_id = self::$mailbox;
 		}
 
+		if ( HSD_FREE ) {
+			$message = wpautop( $message );
+		}
+
 		$conversation = self::get_conversation( $conversation_id );
 		$customer = $conversation['item']['customer'];
 		$status = ( $new_status ) ? $new_status : $conversation['item']['status'] ;
@@ -194,6 +198,10 @@ class HelpScout_API extends HSD_Controller {
 		}
 		if ( ! $mailbox_id ) {
 			$mailbox_id = self::$mailbox;
+		}
+
+		if ( HSD_FREE ) {
+			$message = wpautop( $message );
 		}
 
 		$customer_ids = self::find_customer_ids();

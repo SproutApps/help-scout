@@ -3,7 +3,7 @@ Contributors: helpscout, sproutapps, dancameron
 Tags: help, support, documentation, helpdesk, contact form, contact, help desk
 Requires at least: 4.0
 Tested up to: 4.7
-Stable tag: 4.0.2
+Stable tag: 4.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -54,7 +54,7 @@ First Release
 
 == Changelog ==
 
-= 4.0.2 =
+= 4.0.3 =
 
 * Fix: Admin hidden becuase of missing capability
 
