@@ -143,8 +143,6 @@ class SA_Settings_API extends HSD_Controller {
 				'capability' => $capability,
 			);
 		}
-
-		error_log( 'self::$admin_pages' . print_r( self::$admin_pages, true ) );
 		return $page;
 	}
 
