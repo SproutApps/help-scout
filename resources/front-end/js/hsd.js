@@ -26,6 +26,9 @@ jQuery(function($) {
 			$.ajax({
 				url: hsd_js_object.admin_ajax,
 				type: "POST",
+    			xhrFields: {
+					withCredentials: true
+				},
 				data: {
 					action: 'hsd_shortcodes',
 					type: 'conversation_table',
@@ -46,6 +49,9 @@ jQuery(function($) {
 			$.ajax({
 				url: hsd_js_object.admin_ajax,
 				type: "POST",
+    			xhrFields: {
+					withCredentials: true
+				},
 				data: {
 					action: 'hsd_shortcodes',
 					type: 'single_conversation',

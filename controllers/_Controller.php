@@ -113,15 +113,20 @@ abstract class HSD_Controller extends HelpScout_Desk {
 
 
 	public static function register_resources() {
-		// Templates
-		wp_register_script( 'hsd', HSD_URL . '/resources/front-end/js/hsd.js', array( 'jquery' ), self::HSD_VERSION );
-		wp_register_style( 'hsd', HSD_URL . '/resources/front-end/css/hsd.style.css', array(), self::HSD_VERSION );
-
-		if ( file_exists( HSD_URL . '/resources/front-end/plugins/redactor/redactor.min.js' ) ) {
+		$fereqjs = array( 'jquery' );
+		$fereqcss = array();
+		if ( file_exists( HSD_PATH . '/resources/front-end/plugins/redactor/redactor.min.js' ) ) {
 			// Redactor
 			wp_register_script( 'redactor', HSD_URL . '/resources/front-end/plugins/redactor/redactor.min.js', array( 'jquery' ), self::HSD_VERSION );
 			wp_register_style( 'redactor', HSD_URL . '/resources/front-end/plugins/redactor/redactor.css', array(), self::HSD_VERSION );
+
+			$fereq = array( 'jquery', 'redactor' );
+			$fereqcss = array( 'redactor' );
 		}
+
+		// Templates
+		wp_register_script( 'hsd', HSD_URL . '/resources/front-end/js/hsd.js', $fereq, self::HSD_VERSION );
+		wp_register_style( 'hsd', HSD_URL . '/resources/front-end/css/hsd.style.css', $fereqcss, self::HSD_VERSION );
 
 		// Admin
 		wp_register_script( 'hsd_admin_js', HSD_URL . '/resources/admin/js/hsd.js', array( 'jquery' ), self::HSD_VERSION );
@@ -136,10 +141,10 @@ abstract class HSD_Controller extends HelpScout_Desk {
 			'post_id' => get_the_ID(),
 			'readmore' => __( 'Expand message', 'help-scout-desk' ),
 			'close' => __( 'Collapse message', 'help-scout-desk' ),
-			'redactor' => true,
+			'redactor' => false,
 		);
-		if ( ! file_exists( HSD_URL . '/resources/front-end/plugins/redactor/redactor.min.js' ) ) {
-			$hsd_js_object['redactor'] = false;
+		if ( file_exists( HSD_PATH . '/resources/front-end/plugins/redactor/redactor.min.js' ) ) {
+			$hsd_js_object['redactor'] = true;
 		}
 		wp_localize_script( 'hsd', 'hsd_js_object', apply_filters( 'hsd_scripts_localization', $hsd_js_object ) );
 
