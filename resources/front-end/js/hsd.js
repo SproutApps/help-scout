@@ -1,7 +1,6 @@
-jQuery.noConflict();
-
+var $ = jQuery.noConflict();
 jQuery(function($) {
-
+	
 	$(window).load(function(){
 	});
 
