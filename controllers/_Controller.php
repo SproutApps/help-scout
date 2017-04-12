@@ -120,12 +120,12 @@ abstract class HSD_Controller extends HelpScout_Desk {
 			wp_register_script( 'redactor', HSD_URL . '/resources/front-end/plugins/redactor/redactor.min.js', array( 'jquery' ), self::HSD_VERSION );
 			wp_register_style( 'redactor', HSD_URL . '/resources/front-end/plugins/redactor/redactor.css', array(), self::HSD_VERSION );
 
-			$fereq = array( 'jquery', 'redactor' );
+			$fereqjs = array( 'jquery', 'redactor' );
 			$fereqcss = array( 'redactor' );
 		}
 
 		// Templates
-		wp_register_script( 'hsd', HSD_URL . '/resources/front-end/js/hsd.js', $fereq, self::HSD_VERSION );
+		wp_register_script( 'hsd', HSD_URL . '/resources/front-end/js/hsd.js', $fereqjs, self::HSD_VERSION );
 		wp_register_style( 'hsd', HSD_URL . '/resources/front-end/css/hsd.style.css', $fereqcss, self::HSD_VERSION );
 
 		// Admin

@@ -3,7 +3,7 @@ Contributors: helpscout, sproutapps, dancameron
 Tags: help, support, documentation, helpdesk, contact form, contact, help desk
 Requires at least: 4.0
 Tested up to: 4.7
-Stable tag: 4.0.4
+Stable tag: 4.0.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -53,6 +53,15 @@ Beacon is included on all Free plans, so you can embed your Beacon using this pl
 First Release
 
 == Changelog ==
+
+= 4.0.5 =
+
+* Fix: Variable typos
+
+= 4.0.4 =
+
+* Fix: WYSIWYG editor not showing for HSD
+* Fix: Explicitly send credentials for AJAX requests, since WPEngine has some issues.
 
 = 4.0.3 =
 

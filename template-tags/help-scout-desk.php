@@ -126,7 +126,7 @@ if ( ! function_exists( 'pp' ) ) {
 	 * @return string
 	 */
 	function pp() {
-		$msg = __v_build_message( func_get_args() );
+		$msg = _v_build_message( func_get_args() );
 		echo '<pre style="white-space:pre-wrap; text-align: left; '.
 			'font: normal normal 11px/1.4 menlo, monaco, monospaced; '.
 			'background: white; color: black; padding: 5px;">'.$msg.'</pre>';
@@ -136,7 +136,7 @@ if ( ! function_exists( 'pp' ) ) {
 	 * @return string
 	 */
 	function dp() {
-		$msg = __v_build_message( func_get_args(), 'var_dump' );
+		$msg = _v_build_message( func_get_args(), 'var_dump' );
 		echo '<pre style="white-space:pre-wrap;; text-align: left; '.
 			'font: normal normal 11px/1.4 menlo, monaco, monospaced; '.
 			'background: white; color: black; padding: 5px;">'.$msg.'</pre>';
@@ -147,7 +147,7 @@ if ( ! function_exists( 'pp' ) ) {
 	 * @return [type] [description]
 	 */
 	function ep() {
-		$msg = __v_build_message( func_get_args() );
+		$msg = _v_build_message( func_get_args() );
 		error_log( '**: '.$msg );
 	}
 
@@ -158,18 +158,16 @@ if ( ! function_exists( 'pp' ) ) {
 	 * @param string $sep  seperator
 	 * @return void|string
 	 */
-	function __v_build_message( $vars, $func = 'print_r', $sep = ', ' ) {
+	function _v_build_message( $vars, $func = 'print_r', $sep = ', ' ) {
 		$msgs = array();
 
 		if ( ! empty( $vars ) ) {
 			foreach ( $vars as $var ) {
 				if ( is_bool( $var ) ) {
 					$msgs[] = ( $var ? 'true' : 'false' );
-				}
-				elseif ( is_scalar( $var ) ) {
+				} elseif ( is_scalar( $var ) ) {
 					$msgs[] = $var;
-				}
-				else {
+				} else {
 					switch ( $func ) {
 						case 'print_r':
 						case 'var_export':
