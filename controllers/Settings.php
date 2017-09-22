@@ -10,6 +10,7 @@
 class HSD_Settings extends HSD_Controller {
 	const API_KEY = 'hs_api_key';
 	const MAILBOX = 'hs_mailbox';
+	const RESET_CUSTOMER_IDS_QV = 'hsd_reset_customer_ids';
 	protected static $api_key;
 	protected static $mailbox;
 
@@ -83,6 +84,15 @@ class HSD_Settings extends HSD_Controller {
 						),
 						'sanitize_callback' => array( __CLASS__, 'sanitize_mailbox_id' ),
 					),
+					self::RESET_CUSTOMER_IDS_QV => array(
+						'label' => __( 'Advanced: Reset', 'help-scout-desk' ),
+						'option' => array(
+							'description' => __( 'To be used if you\'ve recently migrated and have the API error "input could not be validate". Note: confirm the mailbox and and API key before using this option.', 'help-scout-desk' ),
+							'type' => 'bypass',
+							'output' => self::reset_customer_ids(),
+						),
+						'sanitize_callback' => array( __CLASS__, 'sanitize_mailbox_id' ),
+					),
 				),
 			),
 			'hsd_options' => array(
@@ -107,13 +117,41 @@ class HSD_Settings extends HSD_Controller {
 		_e( 'Make sure to setup your Help Scout API key and Mailbox ID before proceeding to these options / settings.', 'help-scout-desk' );
 	}
 
+	public static function reset_customer_ids() {
+		ob_start();
+		?>
+			<span class="button" id="reset_customer_ids"><?php _e( 'Reset Customer IDS', 'help-scout-desk' ) ?></span>
+			<script type="text/javascript">
+				//<![CDATA[
+				jQuery("#reset_customer_ids").on('click', function(event) {
+					event.stopPropagation();
+					event.preventDefault();
+					var $button = jQuery( this );
+					
+					$button.after('<span class="spinner si_inline_spinner" style="visibility:visible;display:inline-block;"></span>');
+
+					if( confirm( '<?php _e( 'Are you sure? This will delete stored customer ids for your users.', 'help-scout-desk' ) ?>' ) ) {
+						jQuery.post( ajaxurl, { action: 'hsd_reset_customer_ids' },
+							function( data ) {
+								jQuery('.si_inline_spinner').remove();
+								jQuery("#reset_customer_ids").removeClass('button');
+								jQuery("#reset_customer_ids").html('<?php _e( 'All done', 'help-scout-desk' ) ?>');
+							}
+						);
+					}
+				});
+				//]]>
+			</script>
+		<?php
+		return ob_get_clean();
+	}
+
 	///////////////
 	// Sanitize //
 	///////////////
 
 	public static function sanitize_mailbox_id( $option = '' ) {
-		// strip everything but the numbers incase they through the entire url
-		// in as the option.
+		// strip everything but the numbers incase they copy the entire url as the option.
 		return preg_replace( '/[^0-9]/', '', $option );
 	}
 }

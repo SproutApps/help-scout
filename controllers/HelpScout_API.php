@@ -20,6 +20,8 @@ class HelpScout_API extends HSD_Controller {
 	public static function init() {
 		self::$mailbox = HSD_Settings::get_mailbox();
 		self::$api_key = HSD_Settings::get_api_key();
+
+		add_action( 'wp_ajax_hsd_reset_customer_ids', array( __CLASS__, 'maybe_reset_customer_ids' ) );
 	}
 
 	public static function api_request( $endpoint = '', $query = '', $refresh = false ) {
@@ -371,12 +373,35 @@ class HelpScout_API extends HSD_Controller {
 			do_action( 'hsd_cant_set_user_customer_ids', $user_id, $customer_ids );
 		} else {
 			$customer_ids = update_user_meta( $user_id, self::CUSTOMER_IDS, $customer_ids );
+
 			do_action( 'hsd_set_user_customer_ids', $user_id, $customer_ids );
 		}
 		return $customer_ids;
 	}
 
+	public static function maybe_reset_customer_ids() {
+		if ( ! current_user_can( 'manage_options' ) ) {
+			return;
+		}
 
+		$args = array(
+			'meta_query' => array(
+				array(
+					'key'     => 'hsd_customer_ids_v3',
+						'compare' => 'EXISTS',
+					),
+				),
+			);
+		$wp_user_query = new WP_User_Query( $args );
+		$hsd_users = $wp_user_query->get_results();
+		if ( ! is_array( $hsd_users ) ) {
+			return;
+		}
+		foreach ( $hsd_users as $hsd_user ) {
+			delete_user_meta( $hsd_user->ID, self::CUSTOMER_IDS );
+		}
+
+	}
 
 	//////////////
 	// Caching //
