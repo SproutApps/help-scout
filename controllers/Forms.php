@@ -36,7 +36,7 @@ class HSD_Forms extends HSD_Controller {
 		}
 
 		if ( '' === $content ) {
-			$content = sprintf( __( 'Thank you, message received. <a href="%s">Send another message</a>.', 'help-scout-desk' ), remove_query_arg( self::SUBMISSION_SUCCESS_QV ) );
+			$content = sprintf( esc_html__( 'Thank you, message received. <a href="%s">Send another message</a>.', 'help-scout-desk' ), remove_query_arg( self::SUBMISSION_SUCCESS_QV ) );
 		}
 
 		// Don't show the form if not on the conversation view
@@ -82,11 +82,11 @@ class HSD_Forms extends HSD_Controller {
 
 		$error = false;
 		if ( ! isset( $_POST['message'] ) || $_POST['message'] == '' ) {
-			$error = __( 'Message Required.', 'help-scout-desk' );
+			$error = esc_html__( 'Message Required.', 'help-scout-desk' );
 		}
 		if ( ! isset( $_GET['conversation_id'] ) ) {
 			if ( ! isset( $_POST['subject'] ) || $_POST['subject'] == '' ) {
-				$error = __( 'Subject Required.', 'help-scout-desk' );
+				$error = esc_html__( 'Subject Required.', 'help-scout-desk' );
 			}
 		}
 		if ( ! $error ) {
@@ -123,7 +123,7 @@ class HSD_Forms extends HSD_Controller {
 					'error' => $_FILES['message_attachment']['error'][ $n ],
 					'size' => $_FILES['message_attachment']['size'][ $n ],
 				);
-				$attachment = HelpScout_API::create_attachment( $file_data, esc_attr__( $_POST['mid'] , 'help-scout-desk' ) );
+				$attachment = HelpScout_API::create_attachment( $file_data, esc_attr( $_POST['mid'], 'help-scout-desk' ) );
 				if ( $attachment !== false ) {
 					$attachments[] = (array) $attachment;
 				}
@@ -132,10 +132,10 @@ class HSD_Forms extends HSD_Controller {
 		if ( isset( $_POST['hsd_conversation_id'] ) && $_POST['hsd_conversation_id'] != '' ) {
 			do_action( 'hsd_form_submitted_to_create_thread' );
 			$new_status = ( isset( $_POST['close_thread'] ) ) ? 'closed' : 'active' ;
-			$new_thread = HelpScout_API::create_thread( $_GET['conversation_id'], stripslashes( $_POST['message'] ), $new_status, esc_attr__( $_POST['mid'] , 'help-scout-desk' ), $attachments );
+			$new_thread = HelpScout_API::create_thread( $_GET['conversation_id'], stripslashes( $_POST['message'] ), $new_status, esc_attr( $_POST['mid'], 'help-scout-desk' ), $attachments );
 		} else {
 			do_action( 'hsd_form_submitted_to_create_conversation' );
-			$new_thread = HelpScout_API::create_conversation( stripslashes( $_POST['subject'] ), stripslashes( $_POST['message'] ), esc_attr__( $_POST['mid'] , 'help-scout-desk' ), $attachments );
+			$new_thread = HelpScout_API::create_conversation( stripslashes( $_POST['subject'] ), stripslashes( $_POST['message'] ), esc_attr( $_POST['mid'], 'help-scout-desk' ), $attachments );
 		}
 		return apply_filters( 'hsd_process_form_submission_new_thread', $new_thread );
 	}

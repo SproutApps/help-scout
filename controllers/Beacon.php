@@ -42,8 +42,8 @@ class HSD_Beacon extends HSD_Controller {
 					<?php echo self::embed_code(); ?>
 					HS.beacon.ready(function() {
 						HS.beacon.identify({
-							name: '<?php echo $name ?>',
-							email: '<?php echo $email ?>',
+							name: '<?php echo esc_js( $name ); ?>',
+							email: '<?php echo esc_js( $email ) ?>',
 						});
 					});
 				</script>
@@ -74,7 +74,7 @@ class HSD_Beacon extends HSD_Controller {
 				'weight' => 30,
 				'settings' => array(
 					self::BEACON_OPTION => array(
-						'label' => __( 'Beacon' , 'help-scout-desk' ),
+						'label' => __( 'Beacon', 'help-scout-desk' ),
 						'option' => array(
 							'description' => sprintf( __( 'Copy and paste the beacon embed code. For more information about this please read the <a href="%s">Help Scout documentation</a>.', 'help-scout-desk' ), 'http://developer.helpscout.net/beacons/' ),
 							'type' => 'textarea',

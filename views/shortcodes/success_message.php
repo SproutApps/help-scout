@@ -1,1 +1,1 @@
-<div class="alert alert-success" role="alert"><?php _e( $message, 'help-scout-desk' ) ?></div>
+<div class="alert alert-success" role="alert"><?php esc_html_e( $message ) ?></div>

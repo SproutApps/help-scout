@@ -62,7 +62,7 @@ if ( ! function_exists( 'hsd_status_label' ) ) :
  * @return string
  */
 	function hsd_status_label( $status = '' ) {
-		echo hsd_get_status_label( $status );
+		echo esc_attr( hsd_get_status_label( $status ) );
 	}
 endif;
 
@@ -76,16 +76,16 @@ if ( ! function_exists( 'hsd_get_status_class' ) ) :
 		// match up labels with bootstrap
 		switch ( $status ) {
 			case 'active':
-				$label = 'primary';
+				$label = __( 'primary', 'help-scout-desk' );
 				break;
 			case 'closed':
-				$label = 'success';
+				$label = __( 'success', 'help-scout-desk' );
 				break;
 			case 'pending':
-				$label = 'warning';
+				$label = __( 'warning', 'help-scout-desk' );
 				break;
 			default:
-				$label = 'default';
+				$label = __( 'default', 'help-scout-desk' );
 				break;
 		}
 		return $label;
@@ -99,7 +99,7 @@ if ( ! function_exists( 'hsd_status_class' ) ) :
  * @return string
  */
 	function hsd_status_class( $status = '' ) {
-		echo hsd_get_status_class( $status );
+		echo esc_attr( hsd_get_status_class( $status ) );
 	}
 endif;
 

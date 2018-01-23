@@ -180,7 +180,7 @@ class SA_Settings_API extends HSD_Controller {
 		foreach ( self::$admin_pages as $page => $data ) {
 			$parent = ( $data['parent'] != '' ) ? $data['parent'] : self::APP_DOMAIN ;
 			$callback = ( is_callable( $data['callback'] ) ) ? $data['callback'] : array( __CLASS__, 'default_admin_page' ) ;
-			$hook = add_submenu_page( $parent, $data['title'], __( $data['menu_title'], 'sprout-invoices' ), $data['capability'], $page, $callback );
+			$hook = add_submenu_page( $parent, $data['title'], __( $data['menu_title'] ), $data['capability'], $page, $callback );
 			self::$admin_pages[ $page ]['hook'] = $hook;
 		}
 	}
@@ -218,7 +218,7 @@ class SA_Settings_API extends HSD_Controller {
 					$section = isset( $tabs['section'] )?$tabs['section']:'';
 
 					self::load_view( 'admin/settings', array(
-						'title' => __( $title, 'sprout-invoices' ),
+						'title' => __( $title ),
 						'page' => $plugin_page,
 						'ajax' => $ajax,
 						'ajax_full_page' => $ajax_full_page,
@@ -237,7 +237,7 @@ class SA_Settings_API extends HSD_Controller {
 		$section = isset( self::$admin_pages[ $plugin_page ]['section'] )?self::$admin_pages[ $plugin_page ]['section']:'';
 
 		self::load_view( 'admin/settings', array(
-				'title' => __( $title, 'sprout-invoices' ),
+				'title' => __( $title ),
 				'page' => $plugin_page,
 				'ajax' => $ajax,
 				'ajax_full_page' => $ajax_full_page,
@@ -266,7 +266,7 @@ class SA_Settings_API extends HSD_Controller {
 		// loop through tabs and build markup
 		foreach ( $tabs as $key => $data ) :
 			if ( $data['section'] === $section ) {
-				$new_title = __( $data['tab_title'], 'sprout-invoices' );
+				$new_title = __( $data['tab_title'] );
 				$current = ( ( isset( $_GET['tab'] ) && $_GET['tab'] === $data['slug'] ) || ( ! isset( $_GET['tab'] ) && str_replace( self::APP_DOMAIN . '/', '', $plugin_page ) == $data['slug'] ) ) ? ' nav-tab-active' : '';
 				$url = ( $data['tab_only'] ) ? add_query_arg( array( 'page' => $plugin_page, 'tab' => $data['slug'] ), 'admin.php' ) : add_query_arg( array( 'page' => $plugin_page ), 'admin.php' );
 				echo '<a href="'.$url.'" class="nav-tab'.$current.'" id="si_options_tab_'.$data['slug'].'">'.$new_title.'</a>';
@@ -404,7 +404,7 @@ class SA_Settings_API extends HSD_Controller {
 			</select>
 		<?php elseif ( $data['type'] == 'radios' ) : ?>
 			<?php foreach ( $data['options'] as $option_key => $option_label ) : ?>
-				<label for="<?php echo esc_attr( $name ); ?>_<?php esc_attr_e( $option_key ); ?>"><input type="radio" name="<?php echo esc_attr( $name ); ?>" id="<?php echo esc_attr( $name ); ?>_<?php esc_attr_e( $option_key ); ?>" value="<?php esc_attr_e( $option_key ); ?>" <?php checked( $option_key, $data['default'] ) ?> />&nbsp;<?php echo esc_html( $option_label ); ?></label>
+				<label for="<?php echo esc_attr( $name ); ?>_<?php echo esc_attr( $option_key ); ?>"><input type="radio" name="<?php echo esc_attr( $name ); ?>" id="<?php echo esc_attr( $name ); ?>_<?php echo esc_attr( $option_key ); ?>" value="<?php echo esc_attr( $option_key ); ?>" <?php checked( $option_key, $data['default'] ) ?> />&nbsp;<?php echo esc_html( $option_label ); ?></label>
 				<br />
 			<?php endforeach; ?>
 		<?php elseif ( $data['type'] == 'checkbox' ) : ?>
@@ -431,7 +431,7 @@ class SA_Settings_API extends HSD_Controller {
 		<?php endif; ?>
 
 		<?php if ( $data['type'] != 'checkbox' && ! empty( $data['description'] ) ) : ?>
-			<p class="description help_block"><?php echo $data['description']; ?></p>
+			<p class="description help_block"><?php echo esc_html( $data['description'] ); ?></p>
 		<?php endif; ?>
 		<?php
 		return apply_filters( 'si_admin_settings_form_field', ob_get_clean(), $name, $data );
@@ -550,7 +550,7 @@ class SA_Settings_API extends HSD_Controller {
 			foreach ( $meta_boxes as $metabox_name => $args ) {
 				$args = apply_filters( $metabox_name . '_meta_box_args', $args );
 				extract( $args );
-				add_meta_box( $metabox_name, __( $title, 'sprout-invoices' ), $callback, $screen, $context, $priority, $args );
+				add_meta_box( $metabox_name, __( $title ), $callback, $screen, $context, $priority, $args );
 			}
 		}
 	}

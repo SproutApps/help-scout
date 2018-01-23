@@ -34,7 +34,7 @@ abstract class HelpScout_Desk {
 	/**
 	 * Current version. Should match help-scout-desk.php plugin version.
 	 */
-	const HSD_VERSION = '4.1';
+	const HSD_VERSION = '4.1.1';
 	/**
 	 * DB Version
 	 */
@@ -59,6 +59,7 @@ abstract class HelpScout_Desk {
 	 * @return string|void
 	 */
 	public static function __( $string ) {
+		// deprecated
 		return __( apply_filters( 'hsd_string_'.sanitize_title( $string ), $string ), self::TEXT_DOMAIN );
 	}
 
@@ -69,6 +70,7 @@ abstract class HelpScout_Desk {
 	 * @return void
 	 */
 	public static function _e( $string ) {
+		// deprecated
 		return _e( apply_filters( 'hsd_string_'.sanitize_title( $string ), $string ), self::TEXT_DOMAIN );
 	}
 
@@ -78,6 +80,7 @@ abstract class HelpScout_Desk {
 	 * @return
 	 */
 	public static function esc__( $string ) {
+		// deprecated
 		return esc_attr__( $string, self::TEXT_DOMAIN );
 	}
 
@@ -87,6 +90,7 @@ abstract class HelpScout_Desk {
 	 * @return
 	 */
 	public static function esc_e( $string ) {
+		// deprecated
 		return esc_attr_e( $string, self::TEXT_DOMAIN );
 	}
 }

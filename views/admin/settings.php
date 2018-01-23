@@ -1,7 +1,7 @@
 <?php require ABSPATH . 'wp-admin/options-head.php'; // not a general options page, so it must be included here ?>
 <?php
 	$page = ( ! isset( $_GET['tab'] ) ) ? $page : self::TEXT_DOMAIN.'/'.$_GET['tab'] ; ?>
-<div id="<?php echo $page ?>" class="wrap">
+<div id="<?php echo esc_attr( $page ) ?>" class="wrap">
 
 	<?php screen_icon(); ?>
 	<h2 class="nav-tab-wrapper">
