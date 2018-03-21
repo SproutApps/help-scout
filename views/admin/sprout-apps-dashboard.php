@@ -26,9 +26,9 @@
 						$excerpt = sa_get_truncate( strip_tags( $item->get_content() ), 30 );
 						?>
 						<div>
-							<h4><a href="<?php echo esc_url( $item->get_permalink() ); ?>" title="<?php echo esc_html( $item->get_title() ); ?>"><?php echo esc_html( $item->get_title() ); ?></a></h4>
-							<span class="rss_date"><?php echo esc_html( $item->get_date( 'j F Y' ) ) ?></span>
-							<p><?php echo esc_html( $excerpt ); ?></p>
+							<h4><a href="<?php echo esc_url( $item->get_permalink() ); ?>" title="<?php echo esc_attr( $item->get_title() ); ?>"><?php echo wp_strip_all_tags( $item->get_title() ); ?></a></h4>
+							<span class="rss_date"><?php echo wp_strip_all_tags( $item->get_date( 'j F Y' ) ) ?></span>
+							<p><?php echo wp_kses_post( $excerpt ); ?></p>
 						</div>
 					<?php endforeach; ?>
 				<?php endif; ?>

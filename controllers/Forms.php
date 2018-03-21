@@ -36,7 +36,7 @@ class HSD_Forms extends HSD_Controller {
 		}
 
 		if ( '' === $content ) {
-			$content = sprintf( esc_html__( 'Thank you, message received. <a href="%s">Send another message</a>.', 'help-scout-desk' ), remove_query_arg( self::SUBMISSION_SUCCESS_QV ) );
+			$content = sprintf( __( 'Thank you, message received. <a href="%s">Send another message</a>.', 'help-scout-desk' ), remove_query_arg( self::SUBMISSION_SUCCESS_QV ) );
 		}
 
 		// Don't show the form if not on the conversation view
@@ -82,11 +82,11 @@ class HSD_Forms extends HSD_Controller {
 
 		$error = false;
 		if ( ! isset( $_POST['message'] ) || $_POST['message'] == '' ) {
-			$error = esc_html__( 'Message Required.', 'help-scout-desk' );
+			$error = __( 'Message Required.', 'help-scout-desk' );
 		}
 		if ( ! isset( $_GET['conversation_id'] ) ) {
 			if ( ! isset( $_POST['subject'] ) || $_POST['subject'] == '' ) {
-				$error = esc_html__( 'Subject Required.', 'help-scout-desk' );
+				$error = __( 'Subject Required.', 'help-scout-desk' );
 			}
 		}
 		if ( ! $error ) {

@@ -276,7 +276,7 @@ class SA_Settings_API extends HSD_Controller {
 		foreach ( $tabs as $key => $data ) :
 			if ( $data['add_new'] && isset( $data['add_new_post_type'] ) ) {
 				$post_new_file = 'post-new.php?post_type=' . $data['add_new_post_type'];
-				echo ' <a href="' . esc_url( admin_url( $post_new_file ) ) . '" class="add-new-h2">' . esc_html( $data['add_new'] ) . '</a>';
+				echo ' <a href="' . esc_url( admin_url( $post_new_file ) ) . '" class="add-new-h2">' . wp_kses_post( $data['add_new'] ) . '</a>';
 			}
 		endforeach;
 	}
@@ -385,7 +385,7 @@ class SA_Settings_API extends HSD_Controller {
 				<?php foreach ( $data['options'] as $group => $states ) : ?>
 					<optgroup label="<?php echo esc_attr( $group ); ?>">
 						<?php foreach ( $states as $option_key => $option_label ) : ?>
-							<option value="<?php echo esc_attr( $option_key ) ?>" <?php selected( $option_key, $data['default'] ) ?>><?php echo esc_html( $option_label ); ?></option>
+							<option value="<?php echo esc_attr( $option_key ) ?>" <?php selected( $option_key, $data['default'] ) ?>><?php echo wp_strip_all_tags( $option_label ); ?></option>
 						<?php endforeach; ?>
 					</optgroup>
 				<?php endforeach; ?>
@@ -393,18 +393,18 @@ class SA_Settings_API extends HSD_Controller {
 		<?php elseif ( $data['type'] == 'select' ) : ?>
 			<select type="select" name="<?php echo esc_attr( $name ); ?>" id="<?php echo esc_attr( $name ); ?>" <?php foreach ( $data['attributes'] as $attr => $attr_value ) { echo esc_attr( $attr ).'="'.esc_attr( $attr_value ).'" '; } ?> <?php if ( isset( $data['required'] ) && $data['required'] ) { echo 'required'; } ?>>
 				<?php foreach ( $data['options'] as $option_key => $option_label ) : ?>
-				<option value="<?php echo esc_attr( $option_key ); ?>" <?php selected( $option_key, $data['default'] ) ?>><?php echo esc_html( $option_label ); ?></option>
+				<option value="<?php echo esc_attr( $option_key ); ?>" <?php selected( $option_key, $data['default'] ) ?>><?php echo wp_strip_all_tags( $option_label ); ?></option>
 				<?php endforeach; ?>
 			</select>
 		<?php elseif ( $data['type'] == 'multiselect' ) : ?>
 			<select type="select" name="<?php echo esc_attr( $name ); ?>[]" id="<?php echo esc_attr( $name ); ?>" <?php foreach ( $data['attributes'] as $attr => $attr_value ) { echo esc_attr( $attr ).'="'.esc_attr( $attr_value ).'" '; } ?> multiple="multiple" <?php if ( isset( $data['required'] ) && $data['required'] ) { echo 'required'; } ?>>
 				<?php foreach ( $data['options'] as $option_key => $option_label ) : ?>
-					<option value="<?php echo esc_attr( $option_key ); ?>" <?php if ( in_array( $option_key, $data['default'] ) ) { echo 'selected="selected"'; } ?>><?php echo esc_html( $option_label ); ?></option>
+					<option value="<?php echo esc_attr( $option_key ); ?>" <?php if ( in_array( $option_key, $data['default'] ) ) { echo 'selected="selected"'; } ?>><?php echo wp_strip_all_tags( $option_label ); ?></option>
 				<?php endforeach; ?>
 			</select>
 		<?php elseif ( $data['type'] == 'radios' ) : ?>
 			<?php foreach ( $data['options'] as $option_key => $option_label ) : ?>
-				<label for="<?php echo esc_attr( $name ); ?>_<?php echo esc_attr( $option_key ); ?>"><input type="radio" name="<?php echo esc_attr( $name ); ?>" id="<?php echo esc_attr( $name ); ?>_<?php echo esc_attr( $option_key ); ?>" value="<?php echo esc_attr( $option_key ); ?>" <?php checked( $option_key, $data['default'] ) ?> />&nbsp;<?php echo esc_html( $option_label ); ?></label>
+				<label for="<?php echo esc_attr( $name ); ?>_<?php echo esc_attr( $option_key ); ?>"><input type="radio" name="<?php echo esc_attr( $name ); ?>" id="<?php echo esc_attr( $name ); ?>_<?php echo esc_attr( $option_key ); ?>" value="<?php echo esc_attr( $option_key ); ?>" <?php checked( $option_key, $data['default'] ) ?> />&nbsp;<?php echo wp_kses_post( $option_label ); ?></label>
 				<br />
 			<?php endforeach; ?>
 		<?php elseif ( $data['type'] == 'checkbox' ) : ?>
@@ -431,7 +431,7 @@ class SA_Settings_API extends HSD_Controller {
 		<?php endif; ?>
 
 		<?php if ( $data['type'] != 'checkbox' && ! empty( $data['description'] ) ) : ?>
-			<p class="description help_block"><?php echo esc_html( $data['description'] ); ?></p>
+			<p class="description help_block"><?php echo wp_kses_post( $data['description'] ); ?></p>
 		<?php endif; ?>
 		<?php
 		return apply_filters( 'si_admin_settings_form_field', ob_get_clean(), $name, $data );
