@@ -35,7 +35,8 @@ class HSD_Beacon extends HSD_Controller {
 		}
 		if ( is_user_logged_in() ) {
 			$user_data = get_userdata( get_current_user_id() );
-			$name = $user_data->user_firstname . ' ' . $user_data->user_lastname;
+			$uname = $user_data->user_firstname . ' ' . $user_data->user_lastname;
+			$name = ( strlen( $uname ) > 1 ) ? $uname : '' ;
 			$email = $user_data->user_email;
 			?>
 				<script>
