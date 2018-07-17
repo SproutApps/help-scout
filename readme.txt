@@ -1,10 +1,10 @@
 === Help Scout ===
 Contributors: helpscout, sproutapps, dancameron
 Tags: help, support, documentation, helpdesk, contact form, contact, help desk
-Requires at least: 4.2
+Requires at least: 4.5
 Tested up to: 4.9
-Stable tag: 4.2
-Release 4.2
+Stable tag: 4.2.1
+Release 4.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -55,7 +55,11 @@ First Release
 
 == Changelog ==
 
-= 4.1 =
+= 4.2.1 =
+
+* Fix: Admin CSS Issue
+
+= 4.2 =
 
 * New: Option to reset customer ids
 
