@@ -23,9 +23,10 @@ class HSD_Beacon extends HSD_Controller {
 
 	private static function embed_code() {
 		$code = str_replace(
-			array( '<script>', '</script>' ),
-			array( '', '' ),
+			array( '<script>', '</script>', '<script type="text/javascript">' ),
+			array( '', '', '' ),
 		self::$beacon_embed );
+		error_log( 'code: ' . print_r( $code, true ) );
 		return $code;
 	}
 
@@ -39,7 +40,7 @@ class HSD_Beacon extends HSD_Controller {
 			$name = ( strlen( $uname ) > 1 ) ? $uname : '' ;
 			$email = $user_data->user_email;
 			?>
-				<script>
+				<script type="text/javascript">
 					<?php echo self::embed_code(); ?>
 					HS.beacon.ready(function() {
 						HS.beacon.identify({
@@ -51,7 +52,7 @@ class HSD_Beacon extends HSD_Controller {
 			<?php
 		} else {
 			?>
-				<script>
+				<script type="text/javascript">
 					<?php echo self::embed_code(); ?>
 					HS.beacon.ready();
 				</script>
