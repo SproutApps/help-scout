@@ -2,9 +2,9 @@
 Contributors: helpscout, sproutapps, dancameron
 Tags: help, support, documentation, helpdesk, contact form, contact, help desk
 Requires at least: 4.5
-Tested up to: 4.9
-Stable tag: 4.2.1
-Release 4.2.1
+Tested up to: 5.0
+Stable tag: 5.0
+Release 5.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -24,7 +24,7 @@ This simple plugin takes only a few minutes to setup. It enables you to do a cou
 * Add a [Help Scout Beacon](https://www.helpscout.net/embed-tools/) to your site. Just paste your embed code and save.
 
 > <strong>Looking for more horsepower? Try Help Scout Desk.</strong><br>
-> [Help Scout Desk](https://sproutapps.co/help-scout-desk-wordpress-plugin/?utm_medium=link&utm_campaign=hsfree&utm_source=wordpress.org) is a premium plugin that adds a full-featured customer portal to your Wordpress site. Customers can submit inquiries, see their complete history and more.
+> [Help Scout Desk](https://wphelpscout.com/?utm_medium=link&utm_campaign=hsfree&utm_source=wordpress.org) is a premium plugin that adds a full-featured customer portal to your Wordpress site. Customers can submit inquiries, see their complete history and more.
 
 == Installation ==
 
@@ -34,7 +34,7 @@ This simple plugin takes only a few minutes to setup. It enables you to do a cou
 1. Open the settings for the plugin, then add your API key and Mailbox ID.
 1. Add `[hsd_form]` shortcode to a page or post to capture contact submissions OR use the Help Scout beacon.
 
-Have a look at the [getting started guide](http://docs.sproutapps.co/article/172-getting-started) for more detailed information on setting up Help Scout for WordPress.
+Have a look at the [getting started guide](http://docs.wphelpscout.com/article/172-getting-started) for more detailed information on setting up Help Scout for WordPress.
 
 == Frequently Asked Questions ==
 
@@ -54,6 +54,12 @@ Beacon is included on all Free plans, so you can embed your Beacon using this pl
 First Release
 
 == Changelog ==
+
+= 5.0 =
+
+* NEW: Full Beacon 2.0 support
+* NEW: Move to new domain
+* NEW: Admin found under settings
 
 = 4.2.1 =
 

@@ -171,18 +171,8 @@ class SA_Settings_API extends HSD_Controller {
 	public static function add_admin_page() {
 
 		// Add parent menu for SI
-		self::$settings_page = add_menu_page( __( 'Sprout Apps', 'sprout-invoices' ), __( 'Sprout Apps', 'sprout-invoices' ), self::manage_capability(), self::APP_DOMAIN );
-		add_submenu_page( self::APP_DOMAIN, __( 'Sprout Apps', 'sprout-invoices' ), __( 'Updates', 'sprout-invoices' ), self::manage_capability(), self::APP_DOMAIN, array( __CLASS__, 'dashboard_page' ) );
+		self::$settings_page = add_submenu_page( 'options-general.php', __( 'Help Scout', 'sprout-invoices' ), __( 'Help Scout', 'sprout-invoices' ), self::manage_capability(), self::APP_DOMAIN, array( __CLASS__, 'default_admin_page' ) );
 
-		// Sort submenus
-		uasort( self::$admin_pages, array( __CLASS__, 'sort_by_weight' ) );
-		// Add submenus
-		foreach ( self::$admin_pages as $page => $data ) {
-			$parent = ( $data['parent'] != '' ) ? $data['parent'] : self::APP_DOMAIN ;
-			$callback = ( is_callable( $data['callback'] ) ) ? $data['callback'] : array( __CLASS__, 'default_admin_page' ) ;
-			$hook = add_submenu_page( $parent, $data['title'], __( $data['menu_title'] ), $data['capability'], $page, $callback );
-			self::$admin_pages[ $page ]['hook'] = $hook;
-		}
 	}
 
 	public static function dashboard_page() {
@@ -290,13 +280,14 @@ class SA_Settings_API extends HSD_Controller {
 	 */
 	public static function add_options() {
 		$options = apply_filters( 'si_add_options', self::$options );
+
 		foreach ( $options as $page => $sections ) {
 			// Build Section
 			uasort( $sections, array( __CLASS__, 'sort_by_weight' ) );
 			foreach ( $sections as $section_id => $section_args ) {
 				// Check to see if we're on a tab and try to figure out what settings to register
 				$tab = ( isset( $section_args['tab'] ) ) ? $section_args['tab'] : $page;
-				$tpage = self::APP_DOMAIN.'/'.$tab;
+				$tpage = self::APP_DOMAIN;
 				$display = ( isset( $section_args['callback'] ) && is_callable( $section_args['callback'] ) ) ? $section_args['callback'] : array( __CLASS__, 'display_settings_section' ) ;
 				$title = ( isset( $section_args['title'] ) ) ? $section_args['title'] : '' ;
 				add_settings_section( $section_id, $title, $display, $tpage );

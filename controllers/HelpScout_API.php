@@ -112,6 +112,11 @@ class HelpScout_API extends HSD_Controller {
 				}
 			}
 		}
+
+		if ( ! in_array( $conversation['item']['customer']['id'], self::find_customer_ids() ) ) {
+			wp_die( sprintf( '<span class="hsd_error">%s</span>', __( 'Customer ID Mismatch', 'help-scout-desk' ) ) );
+		}
+
 		return apply_filters( 'hsd_get_conversation', $conversation, $conversation_id, $refresh );
 	}
 

@@ -1,18 +1,7 @@
-<?php require ABSPATH . 'wp-admin/options-head.php'; // not a general options page, so it must be included here ?>
-<?php
-	$page = ( ! isset( $_GET['tab'] ) ) ? $page : self::TEXT_DOMAIN.'/'.$_GET['tab'] ; ?>
 <div id="<?php echo esc_attr( $page ) ?>" class="wrap">
 
-	<?php screen_icon(); ?>
-	<h2 class="nav-tab-wrapper">
-		<?php do_action( 'sprout_settings_tabs' ); ?>
-	</h2>
-	<div class="clearfix">
-		<?php do_action( 'sprout_settings_page_sub_heading_'.$_GET['page'] ); ?>
-	</div>
-
 	<?php if ( HSD_FREE ) :  ?>
-		<?php printf( '<div class="upgrade_message clearfix"><p><span class="icon-sproutapps-flat"></span><strong>%s</strong> %s</p></div>', __( 'Looking for more?', 'help-scout-desk' ), sprintf( __( 'Checkout <a href="%s" target="_blank">Help Scout Desk</a> from Sprout Apps.', 'help-scout-desk' ), 'https://sproutapps.co/help-scout-desk-wordpress-plugin/?utm_medium=settings&utm_campaign=hsfree&utm_source=wordpress.org' ) ); ?>
+		<?php printf( '<div class="upgrade_message clearfix"><p><span class="icon-sproutapps-flat"></span><strong>%s</strong> %s</p></div>', __( 'Looking for more?', 'help-scout-desk' ), sprintf( __( 'Checkout <a href="%s" target="_blank">Help Scout Desk</a> from Sprout Apps.', 'help-scout-desk' ), 'https://wphelpscout.com/?utm_medium=settings&utm_campaign=hsfree&utm_source=wordpress.org' ) ); ?>
 	<?php endif ?>
 
 	<span id="ajax_saving" style="display:none" data-message="<?php _e( 'Saving...', 'help-scout-desk' ) ?>"></span>
