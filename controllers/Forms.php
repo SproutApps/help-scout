@@ -97,12 +97,10 @@ class HSD_Forms extends HSD_Controller {
 				wp_redirect( remove_query_arg( self::SUBMISSION_ERROR_QV, add_query_arg( self::SUBMISSION_SUCCESS_QV, true ), esc_url_raw( apply_filters( 'si_hsd_thread_submitted_error_redirect_url', $redirect_url ) ) ) );
 				exit();
 			}
-			// toggle return message
-			$error = $success;
 		}
 		$redirect_url = null;
 		do_action( 'hsd_form_submitted_with_error', $success );
-		wp_redirect( remove_query_arg( self::SUBMISSION_SUCCESS_QV, add_query_arg( self::SUBMISSION_ERROR_QV, urlencode( $error ) ), esc_url_raw( apply_filters( 'si_hsd_thread_submitted_redirect_url', $redirect_url ) ) ) );
+		wp_redirect( remove_query_arg( self::SUBMISSION_SUCCESS_QV, add_query_arg( self::SUBMISSION_ERROR_QV, urlencode( __( 'Failed Submission', 'help-scout-desk' ) ) ), esc_url_raw( apply_filters( 'si_hsd_thread_submitted_redirect_url', $redirect_url ) ) ) );
 		exit();
 
 	}
@@ -113,30 +111,28 @@ class HSD_Forms extends HSD_Controller {
 	 */
 	public static function process_form_submission() {
 		$attachments = array();
+
+		$attachments_data = array();
 		if ( ! empty( $_FILES ) && isset( $_FILES['message_attachment'] ) ) {
 			$attach_count = count( $_FILES['message_attachment']['name'] );
 			for ( $n = 0; $n < $attach_count; $n++ ) {
-				$file_data = array(
-					'name' => $_FILES['message_attachment']['name'][ $n ],
-					'type' => $_FILES['message_attachment']['type'][ $n ],
-					'tmp_name' => $_FILES['message_attachment']['tmp_name'][ $n ],
-					'error' => $_FILES['message_attachment']['error'][ $n ],
-					'size' => $_FILES['message_attachment']['size'][ $n ],
+				$attachment_data[] = array(
+					'fileName' => $_FILES['message_attachment']['name'][ $n ],
+					'mimeType' => $_FILES['message_attachment']['type'][ $n ],
+					'data' => base64_encode( file_get_contents( $_FILES['message_attachment']['tmp_name'][ $n ] ) ),
 				);
-				$attachment = HelpScout_API::create_attachment( $file_data, esc_attr( $_POST['mid'], 'help-scout-desk' ) );
-				if ( $attachment !== false ) {
-					$attachments[] = (array) $attachment;
-				}
 			}
 		}
+
 		if ( isset( $_POST['hsd_conversation_id'] ) && $_POST['hsd_conversation_id'] != '' ) {
 			do_action( 'hsd_form_submitted_to_create_thread' );
 			$new_status = ( isset( $_POST['close_thread'] ) ) ? 'closed' : 'active' ;
-			$new_thread = HelpScout_API::create_thread( $_GET['conversation_id'], stripslashes( $_POST['message'] ), $new_status, esc_attr( $_POST['mid'], 'help-scout-desk' ), $attachments );
+			$new_thread = HelpScout_API::create_thread( $_GET['conversation_id'], stripslashes( $_POST['message'] ), $new_status, esc_attr( $_POST['mid'], 'help-scout-desk' ), $attachment_data );
 		} else {
 			do_action( 'hsd_form_submitted_to_create_conversation' );
-			$new_thread = HelpScout_API::create_conversation( stripslashes( $_POST['subject'] ), stripslashes( $_POST['message'] ), esc_attr( $_POST['mid'], 'help-scout-desk' ), $attachments );
+			$new_thread = HelpScout_API::create_conversation( stripslashes( $_POST['subject'] ), stripslashes( $_POST['message'] ), esc_attr( $_POST['mid'], 'help-scout-desk' ), $attachment_data );
 		}
+
 		return apply_filters( 'hsd_process_form_submission_new_thread', $new_thread );
 	}
 
@@ -146,7 +142,8 @@ class HSD_Forms extends HSD_Controller {
 	 */
 	public static function add_refresh_qv( $hsd_js_object ) {
 		$hsd_js_object['refresh_data'] = 0;
-		$hsd_js_object['current_page'] = max( 1, absint( get_query_var( 'page' ) ) );
+		$hsd_js_object['current_page'] = max( 1, absint( get_query_var( 'page', 1 ) ) );
+		$hsd_js_object['status'] = ( isset( $_REQUEST['status'] ) ) ? $_REQUEST['status'] : 'all' ;
 		if ( isset( $_GET[ self::SUBMISSION_SUCCESS_QV ] ) && $_GET[ self::SUBMISSION_SUCCESS_QV ] ) {
 			$hsd_js_object['refresh_data'] = 1;
 		}

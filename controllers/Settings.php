@@ -11,13 +11,22 @@ class HSD_Settings extends HSD_Controller {
 	const API_KEY = 'hs_api_key';
 	const MAILBOX = 'hs_mailbox';
 	const RESET_CUSTOMER_IDS_QV = 'hsd_reset_customer_ids';
+	const OAUTHTOKEN = 'hs_oauthtoken';
+	const APP_ID = 'hs_oauthtoken_app_id';
+	const SECRET = 'hs_oauthtoken_secret';
 	protected static $api_key;
 	protected static $mailbox;
+	protected static $oauth_token;
+	protected static $app_id;
+	protected static $secret;
 
 	public static function init() {
 		// Store options
 		self::$api_key = get_option( self::API_KEY, '' );
 		self::$mailbox = get_option( self::MAILBOX, '' );
+		self::$oauth_token = get_option( self::OAUTHTOKEN, '' );
+		self::$app_id = get_option( self::APP_ID, '' );
+		self::$secret = get_option( self::SECRET, '' );
 
 		// Register Settings
 		self::register_settings();
@@ -30,6 +39,21 @@ class HSD_Settings extends HSD_Controller {
 
 	public static function get_mailbox() {
 		return self::sanitize_mailbox_id( self::$mailbox );
+	}
+
+	public static function get_oauth_token() {
+		if ( '' === self::$oauth_token && '' !== self::$api_key ) {
+
+		}
+		return self::$oauth_token;
+	}
+
+	public static function get_app_id() {
+		return self::$app_id;
+	}
+
+	public static function get_secret() {
+		return self::$secret;
 	}
 
 
@@ -67,12 +91,20 @@ class HSD_Settings extends HSD_Controller {
 				'weight' => 10,
 				'callback' => array( __CLASS__, 'display_general_section' ),
 				'settings' => array(
-					self::API_KEY => array(
-						'label' => __( 'API Key', 'help-scout-desk' ),
+					self::APP_ID => array(
+						'label' => __( 'Application ID', 'help-scout-desk' ),
 						'option' => array(
-							'description' => __( 'To locate your API key, login to your Help Scout account and click the <b>User Profile</b> menu in the top-right corner. Visit <b>API Keys</b> and click to <b>Generate an API key</b>.', 'help-scout-desk' ),
+							'description' => sprintf( __( 'You need to create an OAuth2 application before you can proceed. Create one by navigating to Your Profile > My apps and click Create My App. When creating your app use <code>%s</code> as the redirect url.', 'help-scout-desk' ), HelpScout_API::get_redirect_url() ),
 							'type' => 'text',
-							'default' => self::$api_key,
+							'default' => self::$app_id,
+						),
+					),
+					self::SECRET => array(
+						'label' => __( 'App Secret', 'help-scout-desk' ),
+						'option' => array(
+							'description' => sprintf( __( 'The app secret when creating a new OAuth2 application.', 'help-scout-desk' ), HelpScout_API::get_redirect_url() ),
+							'type' => 'text',
+							'default' => self::$secret,
 						),
 					),
 					self::MAILBOX => array(
@@ -87,7 +119,7 @@ class HSD_Settings extends HSD_Controller {
 					self::RESET_CUSTOMER_IDS_QV => array(
 						'label' => __( 'Advanced: Reset', 'help-scout-desk' ),
 						'option' => array(
-							'description' => __( 'To be used if you\'ve recently migrated and have the API error "input could not be validate". Note: confirm the mailbox and and API key before using this option.', 'help-scout-desk' ),
+							'description' => __( '<code>(Currently Disabled)</code> To be used if you\'ve recently migrated and have the API error "input could not be validate". Note: confirm the mailbox, APP ID, and Secret before using this option.', 'help-scout-desk' ),
 							'type' => 'bypass',
 							'output' => self::reset_customer_ids(),
 						),
@@ -117,13 +149,23 @@ class HSD_Settings extends HSD_Controller {
 		_e( 'Make sure to setup your Help Scout API key and Mailbox ID before proceeding to these options / settings.', 'help-scout-desk' );
 	}
 
+	public static function auth_button() {
+		ob_start();
+		if ( '' == self::$app_id ) {
+			printf( '<a href="javascript::void(0)" class="button" disabled="disabled">%1$s</a>', __( 'Authorize', 'help-scout-desk' ) );
+		} else {
+			printf( '<a href="https://secure.helpscout.net/authentication/authorizeClientApplication?client_id=%1$s" class="button">%2$s</a>', self::$app_id, __( 'Authorize', 'help-scout-desk' ) );
+		}
+		return ob_get_clean();
+	}
+
 	public static function reset_customer_ids() {
 		ob_start();
 		?>
-			<span class="button" id="reset_customer_ids"><?php _e( 'Reset Customer IDS', 'help-scout-desk' ) ?></span>
+			<span class="button" id="reset_customer_ids" disabled="disabled"><?php _e( 'Reset Customer IDS', 'help-scout-desk' ) ?></span>
 			<script type="text/javascript">
 				//<![CDATA[
-				jQuery("#reset_customer_ids").on('click', function(event) {
+				jQuery("#reset_customer_idsDISABLED").on('click', function(event) {
 					event.stopPropagation();
 					event.preventDefault();
 					var $button = jQuery( this );

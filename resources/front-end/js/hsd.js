@@ -34,6 +34,7 @@ jQuery(function($) {
 					mid: $shortcode_html.data( 'mailbox-id' ),
 					refresh_data: hsd_js_object.refresh_data,
 					current_page: hsd_js_object.current_page,
+					status: hsd_js_object.status,
 					shortcodes_nonce: hsd_js_object.sec,
 					post_id: hsd_js_object.post_id,
 				},

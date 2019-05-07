@@ -36,12 +36,11 @@ function helpscout_desk_load() {
 	}
 
 	require_once HSD_PATH.'/controllers/Settings.php';
-	HSD_Settings::init();
-
 	require_once HSD_PATH.'/controllers/HelpScout_API.php';
-	HelpScout_API::init();
-
 	require_once HSD_PATH.'/controllers/Forms.php';
+
+	HSD_Settings::init();
+	HelpScout_API::init();
 	HSD_Forms::init();
 
 	if ( ! HSD_FREE && file_exists( HSD_PATH.'/controllers/Embeds.php' ) ) {
