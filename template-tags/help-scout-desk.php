@@ -66,6 +66,45 @@ if ( ! function_exists( 'hsd_status_label' ) ) :
 	}
 endif;
 
+if ( ! function_exists( 'hsd_get_waiting_since' ) ) :
+	/**
+	 * Get the days since based on today
+	 * @param  integer $number
+	 * @return string
+	 */
+	function hsd_get_waiting_since( $last_updated = 0 ) {
+		$days_since = hsd_get_days_ago( $last_updated );
+
+		$waiting = '';
+		if ( 0 === $days_since ) {
+			$waiting = date_i18n( get_option( 'time_format' ), $last_updated );
+		} elseif ( 2 > $days_since ) {
+			$waiting = sprintf( __( 'yesterday', 'help-scout-desk' ), $days_since );
+		} elseif ( 7 > $days_since ) {
+			$waiting = sprintf( __( '%s days ago', 'help-scout-desk' ), $days_since );
+		} else {
+			$waiting = date_i18n( get_option( 'date_format' ), $last_updated );
+		}
+
+		return apply_filters( 'hsd_get_waiting_since', $waiting );
+	}
+
+endif;
+
+if ( ! function_exists( 'hsd_get_days_ago' ) ) :
+	/**
+	 * Get the days since based on today
+	 * @param  integer $number
+	 * @return string
+	 */
+	function hsd_get_days_ago( $last_updated = 0 ) {
+		$time_between_update = current_time( 'timestamp' ) - $last_updated;
+		$days_since = round( $time_between_update / DAY_IN_SECONDS );
+		return (int) apply_filters( 'hsd_get_days_ago', $days_since );
+	}
+
+endif;
+
 if ( ! function_exists( 'hsd_get_status_class' ) ) :
 	/**
  * Return the label for a status. Used for element class.

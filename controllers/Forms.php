@@ -112,15 +112,17 @@ class HSD_Forms extends HSD_Controller {
 	public static function process_form_submission() {
 		$attachments = array();
 
-		$attachments_data = array();
+		$attachment_data = array();
 		if ( ! empty( $_FILES ) && isset( $_FILES['message_attachment'] ) ) {
 			$attach_count = count( $_FILES['message_attachment']['name'] );
 			for ( $n = 0; $n < $attach_count; $n++ ) {
-				$attachment_data[] = array(
-					'fileName' => $_FILES['message_attachment']['name'][ $n ],
-					'mimeType' => $_FILES['message_attachment']['type'][ $n ],
-					'data' => base64_encode( file_get_contents( $_FILES['message_attachment']['tmp_name'][ $n ] ) ),
-				);
+				if ( ! empty( $_FILES['message_attachment']['tmp_name'][ $n ] ) ) {
+					$attachment_data[] = array(
+						'fileName' => $_FILES['message_attachment']['name'][ $n ],
+						'mimeType' => $_FILES['message_attachment']['type'][ $n ],
+						'data' => base64_encode( file_get_contents( $_FILES['message_attachment']['tmp_name'][ $n ] ) ),
+					);
+				}
 			}
 		}
 

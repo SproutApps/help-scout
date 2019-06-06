@@ -1,7 +1,7 @@
 <div id="<?php echo esc_attr( $page ) ?>" class="wrap">
 
 	<?php if ( HSD_FREE ) :  ?>
-		<?php printf( '<div class="upgrade_message clearfix"><p><span class="icon-sproutapps-flat"></span><strong>%s</strong> %s</p></div>', __( 'Looking for more?', 'help-scout-desk' ), sprintf( __( 'Checkout <a href="%s" target="_blank">Help Scout Desk</a> from Sprout Apps.', 'help-scout-desk' ), 'https://wphelpscout.com/?utm_medium=settings&utm_campaign=hsfree&utm_source=wordpress.org' ) ); ?>
+		<?php printf( '<div class="upgrade_message clearfix"><p><span class="icon-sproutapps-flat"></span><strong>%s</strong> %s</p></div>', __( 'Looking for more?', 'help-scout-desk' ), sprintf( __( 'Checkout <a href="%s" target="_blank">Help Scout Desk</a>', 'help-scout-desk' ), 'https://wphelpscout.com/?utm_medium=settings&utm_campaign=hsfree&utm_source=wordpress.org' ) ); ?>
 	<?php endif ?>
 
 	<span id="ajax_saving" style="display:none" data-message="<?php _e( 'Saving...', 'help-scout-desk' ) ?>"></span>

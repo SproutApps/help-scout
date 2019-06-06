@@ -91,9 +91,6 @@ class HelpScout_API extends HSD_Controller {
 			return $cache;
 		}
 
-		error_log( '********** NOT cached: ' . print_r( $api_url, true ) );
-		error_log( 'refresh: ' . print_r( $refresh, true ) );
-
 		// Remote API request
 		$params = apply_filters( 'hsd_v2_api_request_params', array(
 			'method' => 'GET',
@@ -112,9 +109,6 @@ class HelpScout_API extends HSD_Controller {
 		$response_code = wp_remote_retrieve_response_code( $raw_response );
 
 		if ( 200 !== $response_code ) {
-			error_log( 'backtrace: ' . print_r( wp_debug_backtrace_summary( null, 0, false ), true ) );
-			error_log( 'url: ' . print_r( $api_url, true ) );
-			error_log( 'error: ' . print_r( $response, true ) );
 			return $response;
 		}
 
@@ -229,7 +223,6 @@ class HelpScout_API extends HSD_Controller {
 	}
 
 	public static function get_full_conversations_by_user( $customer_id = 0, $refresh = false, $mailbox_id = 0, $page = 1, $status = 'all' ) {
-
 		if ( ! $customer_id ) {
 			$customer_ids = self::find_customer_ids( $customer_id, $refresh );
 		} else {
@@ -243,8 +236,7 @@ class HelpScout_API extends HSD_Controller {
 		$conversations = array();
 		foreach ( $customer_ids as $customer_id ) {
 
-			$query = sprintf( '?query=(customerIds: %2$s)&mailboxid=%1$s&status=%4$s&sortField=modifiedAt&sortOrder=desc&page=%3$s', $mailbox_id, $customer_id, $page, $status );
-
+			$query = sprintf( '?query=(customerIds:%2$s)&mailbox=%1$s&status=%4$s&sortField=modifiedAt&sortOrder=desc&page=%3$s', $mailbox_id, $customer_id, $page, $status );
 			$response = self::api_request( 'conversations', $query, $refresh );
 			$response = json_decode( $response );
 
@@ -277,8 +269,10 @@ class HelpScout_API extends HSD_Controller {
 			$message = wpautop( $message );
 		}
 
-		$conversation = self::get_complete_conversation( $conversation_id );
-		$customer = $conversation['customer'];
+		$customer_ids = self::find_customer_ids();
+
+		// create a new customer if one wasn't found.
+		$customer = ( empty( $customer_ids ) ) ? array( 'email' => self::find_email() ) : array( 'id' => $customer_ids[0] ) ;
 
 		$fields = apply_filters( 'hsd_create_thread_fields', array(
 				'customer' => $customer,
@@ -286,7 +280,7 @@ class HelpScout_API extends HSD_Controller {
 				'attachments' => $attachments_data,
 		) );
 
-		$raw_response = self::api_post( 'conversations/'.$conversation_id.'/reply', $fields );
+		$raw_response = self::api_post( 'conversations/'.$conversation_id.'/customer', $fields );
 
 		$response_code = wp_remote_retrieve_response_code( $raw_response );
 
@@ -321,11 +315,7 @@ class HelpScout_API extends HSD_Controller {
 		$customer_ids = self::find_customer_ids();
 
 		// create a new customer if one wasn't found.
-		if ( empty( $customer_ids ) ) {
-			$customer = array( 'type' => 'customer', 'email' => self::find_email() );
-		} else {
-			$customer = array( 'type' => 'customer', 'id' => $customer_ids[0] );
-		}
+		$customer = ( empty( $customer_ids ) ) ? array( 'email' => self::find_email() ) : array( 'id' => $customer_ids[0] ) ;
 
 		$fields = apply_filters( 'hsd_create_conversation_fields', array(
 				'mailboxId' => $mailbox_id,
@@ -405,7 +395,7 @@ class HelpScout_API extends HSD_Controller {
 			return array();
 		}
 		// Query for the customers with the same email address
-		$query = sprintf( '?mailbox=%2$s&query=(email:"%1$s")', $email, self::$mailbox );
+		$query = sprintf( '?query=(email:"%1$s")', $email, self::$mailbox );
 		$response = self::api_request( 'customers', $query, $refresh );
 		// convert to an array
 		$response = json_decode( $response );
@@ -499,7 +489,7 @@ class HelpScout_API extends HSD_Controller {
 		if ( ! $mailbox_id ) {
 			$mailbox_id = self::$mailbox;
 		}
-		$endpoint = sprintf( 'conversations?query=(customerIds: %2$s)&mailboxid=%1$s&status=all&sortField=modifiedAt&sortOrder=desc&page=1', $mailbox_id, $customer_id );
+		$endpoint = sprintf( 'conversations?query=(customerIds:%2$s)&mailbox=%1$s&status=all&sortField=modifiedAt&sortOrder=desc&page=1', $mailbox_id, $customer_id );
 		delete_transient( self::get_cache_key( $endpoint ) );
 	}
 }

@@ -119,7 +119,7 @@ class HSD_Settings extends HSD_Controller {
 					self::RESET_CUSTOMER_IDS_QV => array(
 						'label' => __( 'Advanced: Reset', 'help-scout-desk' ),
 						'option' => array(
-							'description' => __( '<code>(Currently Disabled)</code> To be used if you\'ve recently migrated and have the API error "input could not be validate". Note: confirm the mailbox, APP ID, and Secret before using this option.', 'help-scout-desk' ),
+							'description' => __( 'To be used if you\'ve recently migrated and have the API error "input could not be validate". Note: confirm the mailbox, APP ID, and Secret before using this option.', 'help-scout-desk' ),
 							'type' => 'bypass',
 							'output' => self::reset_customer_ids(),
 						),
@@ -162,10 +162,10 @@ class HSD_Settings extends HSD_Controller {
 	public static function reset_customer_ids() {
 		ob_start();
 		?>
-			<span class="button" id="reset_customer_ids" disabled="disabled"><?php _e( 'Reset Customer IDS', 'help-scout-desk' ) ?></span>
+			<span class="button" id="reset_customer_ids"><?php _e( 'Reset Customer IDS', 'help-scout-desk' ) ?></span>
 			<script type="text/javascript">
 				//<![CDATA[
-				jQuery("#reset_customer_idsDISABLED").on('click', function(event) {
+				jQuery("#reset_customer_ids").on('click', function(event) {
 					event.stopPropagation();
 					event.preventDefault();
 					var $button = jQuery( this );
@@ -194,6 +194,6 @@ class HSD_Settings extends HSD_Controller {
 
 	public static function sanitize_mailbox_id( $option = '' ) {
 		// strip everything but the numbers incase they copy the entire url as the option.
-		return preg_replace( '/[^0-9]/', '', $option );
+		return preg_replace( '/[^0-9],/', '', $option );
 	}
 }

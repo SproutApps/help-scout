@@ -3,8 +3,8 @@ Contributors: helpscout, sproutapps, dancameron
 Tags: help, support, documentation, helpdesk, contact form, contact, help desk
 Requires at least: 4.5
 Tested up to: 5.2
-Stable tag: 6.0
-Release 6.0
+Stable tag: 6.0.7
+Release 6.0.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -31,7 +31,7 @@ This simple plugin takes only a few minutes to setup. It enables you to do a cou
 1. [Sign up for Help Scout](https://secure.helpscout.net/members/register/13/) if you don't already have an account.
 1. Upload plugin folder to your `/wp-content/plugins/` directory
 1. Activate the plugin through the **Plugins** menu in WordPress
-1. Open the settings for the plugin, then add your API key and Mailbox ID.
+1. Open the settings for the plugin, then add your Application ID, App Secret, and Mailbox ID.
 1. Add `[hsd_form]` shortcode to a page or post to capture contact submissions OR use the Help Scout beacon.
 
 Have a look at the [getting started guide](http://docs.wphelpscout.com/article/172-getting-started) for more detailed information on setting up Help Scout for WordPress.
