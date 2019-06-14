@@ -370,7 +370,11 @@ class HelpScout_API extends HSD_Controller {
 	}
 
 	public static function is_customer() {
-		return apply_filters( 'hsd_is_customer', true );
+		$is_customer = true;
+		if ( ! is_user_logged_in() ) {
+			$is_customer = false;
+		}
+		return apply_filters( 'hsd_is_customer', $is_customer );
 	}
 
 	public static function find_email( $user_id = 0 ) {
