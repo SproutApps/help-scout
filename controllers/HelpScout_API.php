@@ -169,7 +169,7 @@ class HelpScout_API extends HSD_Controller {
 
 		// Security Check
 		if ( ! in_array( $con_and_threads['conversation']['primaryCustomer']['id'], self::find_customer_ids() ) ) {
-			wp_die( sprintf( '<span class="hsd_error">%s</span>', __( 'Customer ID Mismatch', 'help-scout-desk' ) ) );
+			return false;
 		}
 
 		// Does the API include the full primaryCustomer object yet?
