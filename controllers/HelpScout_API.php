@@ -278,6 +278,7 @@ class HelpScout_API extends HSD_Controller {
 				'customer' => $customer,
 				'text' => $message,
 				'attachments' => $attachments_data,
+				'status' => $new_status,
 		) );
 
 		$raw_response = self::api_post( 'conversations/'.$conversation_id.'/customer', $fields );

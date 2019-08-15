@@ -38,11 +38,11 @@ if ( ! is_user_logged_in() ) {
 
 	<?php do_action( 'hsd_form_close_thread' ) ?>
 
-	<?php /*/ if ( $conversation_view ) : ?>
+	<?php if ( $conversation_view ) : ?>
 		<div id="close_thread_check" class="checkbox">
 			<label for="close_thread"><input type="checkbox" name="close_thread" id="close_thread"> <?php _e( 'Close Support Thread', 'help-scout-desk' ) ?></label>
 		</div>
-	<?php endif  /**/ ?>
+	<?php endif ?>
 
 	<?php do_action( 'hsd_form_hidden_values' ) ?>
 

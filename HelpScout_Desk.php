@@ -14,7 +14,7 @@ if ( ! defined( 'HSD_DEV' ) ) {
 	define( 'HSD_DEV', false ); }
 
 if ( ! defined( 'SUPPORT_URL' ) ) {
-	define( 'SUPPORT_URL', 'http://docs.wphelpscout.com/collection/14-help-scout-desk' );
+	define( 'SUPPORT_URL', 'https://wphelpscout.com/support/docs/getting-started-with-help-scout-desk/' );
 }
 
 abstract class HelpScout_Desk {
@@ -34,7 +34,7 @@ abstract class HelpScout_Desk {
 	/**
 	 * Current version. Should match help-scout-desk.php plugin version.
 	 */
-	const HSD_VERSION = '6.1';
+	const HSD_VERSION = '6.2';
 	/**
 	 * DB Version
 	 */
