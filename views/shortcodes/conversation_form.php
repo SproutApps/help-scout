@@ -36,6 +36,7 @@ if ( ! is_user_logged_in() ) {
 		<input type="file" id="message_attachment" name="message_attachment[]" multiple>
 	</div>
 
+	<?php /*/  ?>
 	<?php do_action( 'hsd_form_close_thread' ) ?>
 
 	<?php if ( $conversation_view ) : ?>
@@ -43,7 +44,8 @@ if ( ! is_user_logged_in() ) {
 			<label for="close_thread"><input type="checkbox" name="close_thread" id="close_thread"> <?php _e( 'Close Support Thread', 'help-scout-desk' ) ?></label>
 		</div>
 	<?php endif ?>
-
+	<?php /**/  ?>
+	
 	<?php do_action( 'hsd_form_hidden_values' ) ?>
 
 	<?php if ( $conversation_view ) : ?>

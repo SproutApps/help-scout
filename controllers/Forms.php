@@ -126,7 +126,7 @@ class HSD_Forms extends HSD_Controller {
 			}
 		}
 
-		if ( isset( $_POST['hsd_conversation_id'] ) && $_POST['hsd_conversation_id'] != '' ) {
+		if ( isset( $_POST['hsd_conversation_id'] ) && '' != $_POST['hsd_conversation_id'] ) {
 			do_action( 'hsd_form_submitted_to_create_thread' );
 			$new_status = ( isset( $_POST['close_thread'] ) ) ? 'closed' : 'active' ;
 			$new_thread = HelpScout_API::create_thread( $_GET['conversation_id'], stripslashes( $_POST['message'] ), $new_status, esc_attr( $_POST['mid'], 'help-scout-desk' ), $attachment_data );
