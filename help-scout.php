@@ -2,7 +2,7 @@
 
 /**
  * @package Help_Scout_Desk
- * @version 6.2.1
+ * @version 6.3
  */
 
 /*
@@ -10,7 +10,7 @@
  * Plugin URI: https://wphelpscout.com
  * Description: Allows for Help Scout conversations to be easily created on your site, with full beacon support. If you're wanting to display conversations on your site checkout <a href="https://wphelpscout.com/?utm_medium=link&utm_campaign=hsfree&utm_source=wordpress.org">Help Scout Desk</a>.
  * Author: Sprout Apps
- * Version: 6.2.1
+ * Version: 6.3
  * Author URI: https://wphelpscout.com
  * Text Domain: help-scout-desk
  * Domain Path: languages

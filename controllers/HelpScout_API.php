@@ -154,11 +154,19 @@ class HelpScout_API extends HSD_Controller {
 	// Conversations //
 	////////////////////
 
-
 	public static function get_complete_conversation( $conversation_id = 0, $refresh = false ) {
 
 		if ( ! $conversation_id ) {
 			return false;
+		}
+
+		// Check the array of all converations for the current user
+		// if the conversation already exists.
+		$all_cc = self::get_full_conversations_by_user( 0, $refresh );
+		foreach ( $all_cc as $cckey => $cc ) {
+			if ( $conversation_id == $cc['conversation']['id'] ) {
+				return $cc;
+			}
 		}
 
 		$con_and_threads = array();
@@ -183,7 +191,7 @@ class HelpScout_API extends HSD_Controller {
 		}
 
 		// Does the callback include all the threads, some don't.
-		if ( isset( $con_and_threads['conversation']['primaryCustomer']['firstName'] ) ) {
+		if ( isset( $con_and_threads['_embedded']['threads'] ) ) {
 
 			$con_and_threads['threads'] = $con_and_threads['_embedded']['threads'];
 
@@ -236,15 +244,48 @@ class HelpScout_API extends HSD_Controller {
 		$conversations = array();
 		foreach ( $customer_ids as $customer_id ) {
 
-			$query = sprintf( '?query=(customerIds:%2$s)&mailbox=%1$s&status=%4$s&sortField=modifiedAt&sortOrder=desc&page=%3$s', $mailbox_id, $customer_id, $page, $status );
+			$query = sprintf( '?query=(customerIds:%2$s)&embed=threads&mailbox=%1$s&status=%4$s&sortField=modifiedAt&sortOrder=desc&page=%3$s', $mailbox_id, $customer_id, $page, $status );
 			$response = self::api_request( 'conversations', $query, $refresh );
+
 			$response = json_decode( $response );
 
 			if ( ! empty( $response->_embedded->conversations ) ) {
 
 				foreach ( $response->_embedded->conversations as $key => $data ) {
 
-					$conversations[] = self::get_complete_conversation( $data->id );
+					// Security Check
+					if ( ! in_array( $data->primaryCustomer->id, $customer_ids ) ) {
+						return false;
+					}
+
+					// reformating the conversation to a more usable object/array.
+					$con = array();
+					$con['customer'] = $data->primaryCustomer;
+					$con['conversation'] = $data;
+					$con['threads'] = $data->_embedded->threads;
+
+					if ( apply_filters( 'hsd_hide_drafts_and_notes', true ) ) {
+
+						foreach ( $con['threads'] as $key => $thread ) {
+
+							// remove non messages
+							if ( $thread->type === 'note' ) {
+								unset( $con['threads'][ $key ] );
+								continue;
+							}
+
+							// remove drafts
+							if ( isset( $thread->state ) && $thread->state !== 'published' ) {
+								unset( $con['threads'][ $key ] );
+								continue;
+							}
+						}
+					}
+
+					// add to array as a recurrsive array
+					$con = json_decode( wp_json_encode( $con ), true );
+
+					$conversations[] = apply_filters( 'hsd_get_complete_conversation', $con, null, $refresh );
 
 				}
 			}
