@@ -254,8 +254,8 @@ class HelpScout_API extends HSD_Controller {
 				foreach ( $response->_embedded->conversations as $key => $data ) {
 
 					// Security Check
-					if ( ! in_array( $data->primaryCustomer->id, $customer_ids ) ) {
-						return false;
+					if ( ! in_array( $data->primaryCustomer->id, $customer_ids ) && apply_filters( 'hsd_check_customer_id_for_security', true ) ) {
+						continue;
 					}
 
 					// reformating the conversation to a more usable object/array.
