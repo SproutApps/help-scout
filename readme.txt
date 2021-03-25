@@ -1,8 +1,8 @@
 === Help Scout ===
-Contributors: helpscout, sproutapps, dancameron
+Contributors: helpscout, sproutapps, dancameron, elanasparkle
 Tags: help, support, documentation, helpdesk, contact form, contact, help desk
-Requires at least: 4.5
-Tested up to: 5.3
+Requires at least: 5
+Tested up to: 5.7
 Stable tag: 6.4.0.1
 Release 6.4.0.1
 License: GPLv2 or later

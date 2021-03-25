@@ -50,7 +50,7 @@ class HelpScout_API extends HSD_Controller {
 		);
 		$params = array(
 			'method' => 'POST',
-			'sslverify' => false,
+			'sslverify' => true,
 			'timeout' => 15,
 			'body' => $auth,
 		 );
@@ -97,7 +97,7 @@ class HelpScout_API extends HSD_Controller {
 			'headers' => array(
 					'Authorization' => 'Bearer ' . self::get_oath_token(),
 				),
-			'sslverify' => false,
+			'sslverify' => true,
 			'timeout' => 15,
 		), $endpoint, $api_url, $query, $refresh );
 
@@ -131,7 +131,7 @@ class HelpScout_API extends HSD_Controller {
 					'Content-Type'   => 'application/json',
 					'Content-Length' => strlen( wp_json_encode( $data ) ),
 				),
-			'sslverify' => false,
+			'sslverify' => true,
 			'timeout' => 15,
 			'body' => wp_json_encode( $data ),
 		), $api_url, $data );
