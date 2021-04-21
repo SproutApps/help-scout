@@ -1,5 +1,5 @@
 === Help Scout ===
-Contributors: helpscout, sproutapps, dancameron
+Contributors: helpscout, sproutapps, dancameron, elanasparkle
 Tags: help, support, documentation, helpdesk, contact form, contact, help desk
 Requires at least: 4.5
 Tested up to: 5.7
@@ -12,7 +12,7 @@ Add a contact form to your website, or embed Help Scout Beacon for instant answe
 
 == Description ==
 
-= Help Scout for Wordpress =
+= Help Scout for WordPress =
 
 Thousands of businesses in more than 140 countries use Help Scout to make every customer support interaction more human & more helpful. 
 
@@ -24,7 +24,7 @@ This simple plugin takes only a few minutes to setup. It enables you to do a cou
 * Add a [Help Scout Beacon](https://www.helpscout.net/embed-tools/) to your site. Just paste your embed code and save.
 
 > <strong>Looking for more horsepower? Try Help Scout Desk.</strong><br>
-> [Help Scout Desk](https://wphelpscout.com/?utm_medium=link&utm_campaign=hsfree&utm_source=wordpress.org) is a premium plugin that adds a full-featured customer portal to your Wordpress site. Customers can submit inquiries, see their complete history and more.
+> [Help Scout Desk](https://wphelpscout.com/?utm_medium=link&utm_campaign=hsfree&utm_source=wordpress.org) is a premium plugin that adds a full-featured customer portal to your WordPress site. Customers can submit inquiries, see their complete history and more.
 
 == Installation ==
 
