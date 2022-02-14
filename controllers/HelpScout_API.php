@@ -43,6 +43,10 @@ class HelpScout_API extends HSD_Controller {
 	///////////
 
 	public static function maybe_refresh_token() {
+		//check to see if connection was made in admin before attempting to auth
+		if( ! HSD_Settings::get_app_id() || ! HSD_Settings::get_secret() ){
+			return false; 
+		}
 		$auth = array(
 			'client_id' => HSD_Settings::get_app_id(),
 			'client_secret' => HSD_Settings::get_secret(),
