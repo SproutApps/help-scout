@@ -10,18 +10,32 @@
 class HSD_Beacon extends HSD_Controller {
 	const BEACON_OPTION = 'help_scout_beacon';
 	const BEACON_SEC_OPTION = 'help_scout_beacon_sec_key';
+	const BEACON_ADMIN_DISPLAY = 'help_scout_beacon_admin_display_key';
+	
 	protected static $beacon_embed;
 	protected static $beacon_key;
+	protected static $admin_display_key;
 
 	public static function init() {
 		self::$beacon_embed = get_option( self::BEACON_OPTION, false );
 		self::$beacon_key = get_option( self::BEACON_SEC_OPTION, false );
+		self::$admin_display_key = get_option( self::BEACON_ADMIN_DISPLAY, false );
+		
 
 		// Register Settings
 		self::register_settings();
 
 		// front-end view
-		add_action( 'wp_footer', array( __CLASS__, 'add_beacon' ) );
+		if (self::$admin_display_key){
+
+			if ( is_user_logged_in() ) {
+				add_action( 'wp_after_admin_bar_render', array( __CLASS__, 'add_beacon' ) );
+			} 
+		}else{
+				add_action( 'wp_footer', array( __CLASS__, 'add_beacon' ) );
+			}
+
+		
 	}
 
 	private static function embed_code() {
@@ -131,6 +145,14 @@ class HSD_Beacon extends HSD_Controller {
 							'description' => sprintf( __( 'Click "advanced" for the "Support history security" option when setting up your Beacon.', 'help-scout-desk' ) ),
 							'type' => 'input',
 							'default' => get_option( self::BEACON_SEC_OPTION, '' ),
+						),
+					),
+					self::BEACON_ADMIN_DISPLAY => array(
+						'label' => __( 'Display if Logged into WordPress', 'help-scout-desk' ),
+						'option' => array(
+							'description' => sprintf( __( 'Only Display the Beacon if user is logged into WordPress.', 'help-scout-desk' ) ),
+							'type' => 'checkbox',
+							'default' => ( get_option( self::BEACON_ADMIN_DISPLAY,  0 ) ) ? false : true,
 						),
 					),
 				),
